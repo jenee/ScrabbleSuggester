@@ -18,6 +18,7 @@ public class ScrabbleSuggesterTester {
       
       
       System.err.println("------ test for " +ch1+" in "+str1);
+      expected = true;
       retVal = suggester.isLetterInString(ch1, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
@@ -26,6 +27,7 @@ public class ScrabbleSuggesterTester {
       }
       
       System.err.println("------ test for " +ch2+" in "+str1);
+      expected = false;
       retVal = suggester.isLetterInString(ch2, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
@@ -34,6 +36,7 @@ public class ScrabbleSuggesterTester {
       }
       
       System.err.println("------ test for " +ch3+" in "+str1);
+      expected = false;
       retVal = suggester.isLetterInString(ch3, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
@@ -42,6 +45,7 @@ public class ScrabbleSuggesterTester {
       }
       
       System.err.println("------ test for " +ch1+" in "+str2);
+      expected = true;
       retVal = suggester.isLetterInString(ch1, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
@@ -50,6 +54,7 @@ public class ScrabbleSuggesterTester {
       }
       
       System.err.println("------ test for " +ch2+" in "+str2);
+      expected = true;
       retVal = suggester.isLetterInString(ch2, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
@@ -58,6 +63,7 @@ public class ScrabbleSuggesterTester {
       }
       
       System.err.println("------ test for " +ch3+" in "+str2);
+      expected = false;
       retVal = suggester.isLetterInString(ch3, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
