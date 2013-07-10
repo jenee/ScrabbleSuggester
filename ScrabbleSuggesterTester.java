@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 
 public class ScrabbleSuggesterTester {
+   
 
    /*tests to see whether a letter exists in a string or not*/
    public static boolean testIsLetterInString() {
