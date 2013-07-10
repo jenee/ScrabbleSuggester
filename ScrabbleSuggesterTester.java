@@ -146,14 +146,79 @@ public class ScrabbleSuggesterTester {
    }
    
    
+   public static boolean testComputeScrabbleScore() {
+      boolean cummRetVal = true;
+      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      int expected = -1;
+      String testStr = "";
+      int actual = -1;
+      int numTests = 7;
+      
+      for( int i = 0; i < numTests; i++ ) {
+         switch(i) { 
+            case 0: 
+               //Test case one: "a", expected: 1
+               expected = 1;
+               testStr = "a";
+               break;
+            case 1:
+               //Test case two: "age", expected: 4
+               expected = 4;
+               testStr = "age";
+               break;
+            case 2:
+               //test case three: "realize", expected: 16
+               expected = 16;
+               testStr = "realize";
+               break;
+            case 3:
+               //test case four: "abcdefghijklmnopqrstuvwxyz", expected: 87
+               expected = 87;
+               testStr = "abcdefghijklmnopqrstuvwxyz";
+               break;
+            case 4:
+               //test case five: "", expected: 0
+               expected = 0;
+               testStr = "";
+               break;
+            case 5:
+               //test case six: "-", expected 0
+               expected = 0;
+               testStr = "-";
+               break;
+            case 6:
+               //test case seven: "hi-res", expected: 8
+               expected = 8;
+               testStr = "hi-res";
+               break;
+            default:
+               System.out.println("No such computeScrabbleScore test as test #"+i);
+               break;
+         }
+         
+         actual = suggester.computeScrabbleScore( testStr );
+         
+         if( actual != expected ) {
+            cummRetVal &= false;
+            System.out.print("FAILED Test "+(i+1)+", expected "+expected);
+            System.out.println(" for \""+testStr+"\", got "+actual); 
+            
+         } else {
+            cummRetVal &= true;
+            System.out.println("test "+(i+1)+" for \""+testStr+"\" succeeded");
+         }
+      }
+      return cummRetVal;
+   }
+   
    public static boolean runTests() {
       boolean cummResult = true;
       boolean result;
       
       System.err.println("---Testing isLetterInString----");
       result = testIsLetterInString();
-      if( testIsLetterInString() ) {
-         System.err.println("PASSED");
+      if( result ) {
+         System.err.println("passed");
       } else {
          System.err.println("FAILED");
       }
@@ -161,12 +226,30 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("---Testing isStringInString----");
       result = testIsStringInString();
-      if( testIsStringInString() ) {
-         System.err.println("PASSED");
+      if( result ) {
+         System.err.println("passed");
       } else {
          System.err.println("FAILED");
       }
       cummResult &= result;
+      
+      System.err.println("---Testing computeScrabbleScore----");
+      result = testComputeScrabbleScore();
+      if( result ) {
+         System.err.println("passed");
+      } else {
+         System.err.println("FAILED");
+      }
+      cummResult &= result;
+      
+      
+      //ADD MORE TESTS ABOVE HERE
+      //Wrap-up message
+      if( cummResult ) {
+         System.err.println("All tests passed");
+      } else  {
+         System.err.println("FAILURE of one or more tests!");
+      } 
       
       return cummResult;
    }
