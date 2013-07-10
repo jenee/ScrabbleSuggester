@@ -70,6 +70,30 @@ public class ScrabbleSuggester {
       return sum;
    }
    
+   
+   public static boolean readLinesFromFile(String path) { 
+      boolean fileFound = false;
+      try {
+         File inputFile = new File(path);
+         
+         Scanner fileScanner = new Scanner( inputFile );
+         
+         int i = 0;
+         int testMax= 25;
+         String line = "";
+         
+         while (i++ <= testMax && fileScanner.hasNextLine() ) {
+            line = fileScanner.nextLine();
+            System.out.println("line read: "+line);
+         }
+         fileFound = true;
+      } catch (FileNotFoundException e ) {
+         System.err.println("File not found at "+path);
+         return fileFound;
+      }
+      return fileFound;
+   }
+   
    /*public static void main(String[] args) throws IOException {
 
    }*/

@@ -211,6 +211,17 @@ public class ScrabbleSuggesterTester {
       return cummRetVal;
    }
    
+   public static boolean testReadLinesFromFile() {
+      boolean retVal = true;    
+      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      String path = "/Users/admin/Documents/Code/InterviewCode/Etsy/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
+      
+      retVal = suggester.readLinesFromFile( path );
+      
+      return retVal;
+   }
+   
+   
    public static boolean runTests() {
       boolean cummResult = true;
       boolean result;
@@ -223,7 +234,8 @@ public class ScrabbleSuggesterTester {
          System.err.println("FAILED");
       }
       cummResult &= result;
-      
+      System.err.println("**********************************************");
+
       System.err.println("---Testing isStringInString----");
       result = testIsStringInString();
       if( result ) {
@@ -232,7 +244,8 @@ public class ScrabbleSuggesterTester {
          System.err.println("FAILED");
       }
       cummResult &= result;
-      
+      System.err.println("**********************************************");
+
       System.err.println("---Testing computeScrabbleScore----");
       result = testComputeScrabbleScore();
       if( result ) {
@@ -241,16 +254,39 @@ public class ScrabbleSuggesterTester {
          System.err.println("FAILED");
       }
       cummResult &= result;
+      System.err.println("**********************************************");
+      
+      //ADD MORE FULLY AUTOMATED TESTS ABOVE HERE
+      
+
+      System.err.println("----------------------------------------------");
+      System.err.println("---BEGIN PARTIALLY-MANUALLY-EVALUATED TESTS---");
+      System.err.println("----------------------------------------------");
+     
+      System.err.println("-----Testing readLinesFromFile----------------");
+
+      System.err.println("-----START Output from readLinesFromFile -----");
+
+      result = testReadLinesFromFile();
+      
+      System.err.println("-----END Output from readLinesFromFile -------");
+      if( result ) {
+         System.err.println("passed");
+      } else {
+         System.err.println("FAILED");
+      }
+      cummResult &= result;
       
       
-      //ADD MORE TESTS ABOVE HERE
       //Wrap-up message
+      System.err.println("**********************************************");   
       if( cummResult ) {
-         System.err.println("All tests passed");
+         System.err.println("All automated tests passed");
       } else  {
-         System.err.println("FAILURE of one or more tests!");
+         System.err.println("FAILURE of one or more automated tests!");
       } 
-      
+      System.err.println("**********************************************");
+      System.err.println("**********************************************");
       return cummResult;
    }
    
