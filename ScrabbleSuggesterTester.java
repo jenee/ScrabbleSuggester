@@ -234,7 +234,7 @@ public class ScrabbleSuggesterTester {
       return retVal;
    }
    
-   public static boolean runTests() {
+   public static boolean runScrabbleSuggesterTests() {
       boolean cummResult = true;
       boolean result;
       
@@ -316,7 +316,9 @@ public class ScrabbleSuggesterTester {
       return cummResult;
    }
    
+   
+   
    public static void main(String[] args) throws IOException {
-      ScrabbleSuggesterTester.runTests();
+      ScrabbleSuggesterTester.runScrabbleSuggesterTests();
    }
 }
