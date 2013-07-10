@@ -94,6 +94,31 @@ public class ScrabbleSuggester {
       return fileFound;
    }
    
+   public static boolean printScrabbleScoreForEachLineInFile(String path) { 
+      boolean fileFound = false;
+      try {
+         File inputFile = new File(path);
+         
+         Scanner fileScanner = new Scanner( inputFile );
+         int score = -1;
+         int i = 0;
+         int testMax= 113810; 
+         String line = "";
+         
+         System.out.println("score,word");
+         while (i++ <= testMax && fileScanner.hasNextLine() ) {
+            line = fileScanner.nextLine();
+            score = computeScrabbleScore(line);
+            System.out.println(score+","+line);
+         }
+         fileFound = true;
+      } catch (FileNotFoundException e ) {
+         System.err.println("File not found at "+path);
+         return fileFound;
+      }
+      return fileFound;
+   }
+   
    /*public static void main(String[] args) throws IOException {
 
    }*/

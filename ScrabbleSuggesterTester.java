@@ -222,6 +222,17 @@ public class ScrabbleSuggesterTester {
    }
    
    
+   
+   public static boolean testPrintScrabbleScoreForEachLineInFile() {
+      boolean retVal = true;    
+      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      String path = "/Users/admin/Documents/Code/InterviewCode/Etsy/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
+      
+      retVal = suggester.printScrabbleScoreForEachLineInFile( path );
+      
+      return retVal;
+   }
+   
    public static boolean runTests() {
       boolean cummResult = true;
       boolean result;
@@ -270,6 +281,20 @@ public class ScrabbleSuggesterTester {
       result = testReadLinesFromFile();
       
       System.err.println("-----END Output from readLinesFromFile -------");
+      if( result ) {
+         System.err.println("passed");
+      } else {
+         System.err.println("FAILED");
+      }
+      cummResult &= result;
+      
+      System.err.println("--Testing printScrabbleScoreForEachLineInFile--");
+
+      System.err.println("-----START Output from printScrabbleScoreForEachLineInFile -----");
+
+      result = testPrintScrabbleScoreForEachLineInFile();
+      
+      System.err.println("-----END Output from printScrabbleScoreForEachLineInFile -------");
       if( result ) {
          System.err.println("passed");
       } else {
