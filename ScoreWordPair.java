@@ -11,11 +11,11 @@ import java.lang.*;
       
 */
 
-public class ScoreWordPair<Integer, String> implements Comparable {
+public class ScoreWordPair_outer<Integer, String> implements Comparable {
     private final Integer score;
     private final String word;
 
-    public ScoreWordPair(Integer score, String word) {
+    public ScoreWordPair_outer(Integer score, String word) {
     	super();
     	this.score = score;
     	this.word = word;
@@ -29,8 +29,8 @@ public class ScoreWordPair<Integer, String> implements Comparable {
     }
 
     public boolean equals(Object other) {
-    	if (other instanceof ScoreWordPair) {
-    		ScoreWordPair otherPair = (ScoreWordPair) other;
+    	if (other instanceof ScoreWordPair_outer) {
+    		ScoreWordPair_outer otherPair = (ScoreWordPair_outer) other;
     		return 
     		((  this.score == otherPair.score ||
     			( this.score != null && otherPair.score != null &&
@@ -50,8 +50,8 @@ public class ScoreWordPair<Integer, String> implements Comparable {
      */
    public int compareTo(Object other) {
       int retVal = -600;
-      if (other instanceof ScoreWordPair) {
-    		ScoreWordPair otherPair = (ScoreWordPair) other;
+      if (other instanceof ScoreWordPair_outer) {
+    		ScoreWordPair_outer otherPair = (ScoreWordPair_outer) other;
          retVal = this.score.compareTo(otherPair.score);
       }
       return retVal;
