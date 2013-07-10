@@ -62,7 +62,7 @@ public class ScrabbleSuggester {
                letterVal = 10;
                break;
             default:
-               System.err.println("non-standard scrabble char; skipping");
+               System.err.println("non-standard scrabble char \'"+c+"\'; skipping");
                break;
          }
          sum += letterVal;
