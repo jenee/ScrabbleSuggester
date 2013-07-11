@@ -21,7 +21,7 @@ public class ScrabbleSuggester {
       this.filepath = path;
    }
    
-   public boolean cleanup() {
+   public void cleanup() {
       if( this.fileScanner != null ) {
          fileScanner.close();
       }
@@ -31,13 +31,13 @@ public class ScrabbleSuggester {
       boolean fileFound = false;
 
       try {
-         inputFile = new File(path);
+         inputFile = new File(this.filepath);
          if( inputFile.exists() && inputFile.isFile() ) {
             fileScanner = new Scanner( inputFile );
             fileFound = true;
          }
       } catch (FileNotFoundException e ) {
-         System.err.println("File not found at "+path);
+         System.err.println("File not found at "+this.filepath);
          return fileFound;
       }
       return fileFound;
@@ -57,8 +57,8 @@ public class ScrabbleSuggester {
          score = computeScrabbleScore(line);
          ScoreWordPair temp = new ScoreWordPair(score, line);
          System.err.print("\t"+i+": ");
-         retVal & = wordList.add(temp);
-         System.err.println( wordList.get(i) );
+         retVal &= wordList.add(temp);
+         System.err.println( wordList.get(i-1) );
       }
    
       return retVal;

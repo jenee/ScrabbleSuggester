@@ -320,12 +320,11 @@ public class ScrabbleSuggesterTester {
       int totalPassedTests = 0;
       int totalTests = 0;
       boolean retVal = true;
-      ScrabberSuggester sgst = new ScrabbleSuggester();
+      ScrabbleSuggester sgst = new ScrabbleSuggester();
       
       System.err.println("######### Testing openFileScanner #########");
       totalTests++;
       retVal &= sgst.openFileScanner();
-      cummRetVal &= retVal; 
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- PASSED openFileScanner test -------");
@@ -336,7 +335,6 @@ public class ScrabbleSuggesterTester {
       System.err.println("######### Testing scoreAndStoreWordsFromFile #########");
       totalTests++;
       retVal &= sgst.scoreAndStoreWordsFromFile();
-      cummRetVal &= retVal;
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- PASSED scoreAndStoreWordsFromFile test -------");
@@ -345,12 +343,12 @@ public class ScrabbleSuggesterTester {
       }
       
       
-      System.out.println("Passed "+totalPassedTests+" out of "+totalTests+"tests");
+      System.out.println("Passed "+totalPassedTests+" out of "+totalTests+" tests");
       return (totalPassedTests == totalTests ) ;
    }
    
    public static void main(String[] args) throws IOException {
-      ScrabbleSuggesterTester.runStaticScrabbleSuggesterTests();
+      //ScrabbleSuggesterTester.runStaticScrabbleSuggesterTests();
       
       ScrabbleSuggesterTester.runNonStaticScrabbleSuggesterTests();
    }
