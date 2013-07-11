@@ -351,12 +351,12 @@ public class ScrabbleSuggesterTester {
       retVal = true;
       ScoreWordPair prev = new ScoreWordPair(101, "dummyword!");
       for( ScoreWordPair elem :  sgst.wordList ) {
-         System.err.print("\tcomparing prev("+prev+") to ");
-         System.err.println("elem("+ elem+") ");
+         //System.err.print("\tcomparing prev("+prev+") to ");
+         //System.err.println("elem("+ elem+") ");
          int prevScore = prev.getScore().intValue();
          int elemScore = elem.getScore().intValue();
-         System.err.println("prev is null? "+(prev != null) );
-         System.err.println(""+prevScore+" > "+elemScore+"? "+( prevScore < elemScore ) );
+         //System.err.println("prev is null? "+(prev != null) );
+         //System.err.println(""+prevScore+" > "+elemScore+"? "+( prevScore < elemScore ) );
          if( prev != null && prevScore < elemScore ) {
             retVal &= false;
             break;

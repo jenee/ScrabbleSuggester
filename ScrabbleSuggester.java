@@ -72,6 +72,24 @@ public class ScrabbleSuggester {
       }
    } 
    
+   public static boolean isWordInFile(String word, String path) {
+      boolean retVal = true;
+      try {
+         RandomAccessFile f = new RandomAccessFile(path, "r");
+         String fileContents = f.readUTF();
+         int indexOfWord = fileContents.indexOf(word);
+         if( indexOfWord == -1 ) {
+            retVal = false;
+         }
+         f.close();
+      } catch (Exception e) {
+         System.err.println("isWordInFile: "+e.toString() );
+         retVal = false;
+         return retVal;
+      }
+      return retVal;
+   }
+   
    public static boolean isStringInString( String toFind, String str) {
       System.err.println("Find "+toFind+" in "+str);
       return str.contains(toFind);
