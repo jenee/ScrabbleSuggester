@@ -224,17 +224,17 @@ public class ScrabbleSuggesterTester {
    
    
    
-   public static boolean testPrintScrabbleScoreForEachLineInFile() {
+   public static boolean testPrintScrabbleScoreWithEachLineInFile() {
       boolean retVal = true;    
       ScrabbleSuggester suggester = new ScrabbleSuggester();
       String path = "/Users/admin/Documents/Code/InterviewCode/Etsy/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
       
-      retVal = suggester.printScrabbleScoreForEachLineInFile( path );
+      retVal = suggester.printScrabbleScoreWithEachLineInFile( path );
       
       return retVal;
    }
    
-   public static boolean runScrabbleSuggesterTests() {
+   public static boolean runStaticScrabbleSuggesterTests() {
       boolean cummResult = true;
       boolean result;
       
@@ -289,13 +289,13 @@ public class ScrabbleSuggesterTester {
       }
       cummResult &= result;
       
-      System.err.println("--Testing printScrabbleScoreForEachLineInFile--");
+      System.err.println("--Testing testPrintScrabbleScoreWithEachLineInFile--");
 
-      System.err.println("-----START Output from printScrabbleScoreForEachLineInFile -----");
+      System.err.println("-----START Output from testPrintScrabbleScoreWithEachLineInFile -----");
 
-      result = testPrintScrabbleScoreForEachLineInFile();
+      result = testPrintScrabbleScoreWithEachLineInFile();
       
-      System.err.println("-----END Output from printScrabbleScoreForEachLineInFile -------");
+      System.err.println("-----END Output from testPrintScrabbleScoreWithEachLineInFile -------");
       if( result ) {
          System.err.println("passed");
       } else {
@@ -316,9 +316,42 @@ public class ScrabbleSuggesterTester {
       return cummResult;
    }
    
-   
+   public static boolean runNonStaticScrabbleSuggesterTests() {
+      int totalPassedTests = 0;
+      int totalTests = 0;
+      boolean retVal = true;
+      ScrabberSuggester sgst = new ScrabbleSuggester();
+      
+      System.err.println("######### Testing openFileScanner #########");
+      totalTests++;
+      retVal &= sgst.openFileScanner();
+      cummRetVal &= retVal; 
+      if( retVal ) {
+         totalPassedTests++;
+         System.err.println("------- PASSED openFileScanner test -------");
+      } else {
+         System.err.println("XXXXXXX FAILED openFileScanner test XXXXXXX");
+      }
+
+      System.err.println("######### Testing scoreAndStoreWordsFromFile #########");
+      totalTests++;
+      retVal &= sgst.scoreAndStoreWordsFromFile();
+      cummRetVal &= retVal;
+      if( retVal ) {
+         totalPassedTests++;
+         System.err.println("------- PASSED scoreAndStoreWordsFromFile test -------");
+      } else {
+         System.err.println("XXXXXXX FAILED scoreAndStoreWordsFromFile test XXXXXXX");
+      }
+      
+      
+      System.out.println("Passed "+totalPassedTests+" out of "+totalTests+"tests");
+      return (totalPassedTests == totalTests ) ;
+   }
    
    public static void main(String[] args) throws IOException {
-      ScrabbleSuggesterTester.runScrabbleSuggesterTests();
+      ScrabbleSuggesterTester.runStaticScrabbleSuggesterTests();
+      
+      ScrabbleSuggesterTester.runNonStaticScrabbleSuggesterTests();
    }
 }

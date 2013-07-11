@@ -42,7 +42,7 @@ public class ScoreWordPair implements Comparable<ScoreWordPair> {
    
    
     public String toString(){ 
-           return "(" + score + ", " + word + ")"; 
+           return "" + score + ", " + word ; 
     }
 
     public Integer getScore() {
