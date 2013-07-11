@@ -72,6 +72,30 @@ public class ScrabbleSuggester {
       }
    } 
    
+   public static boolean addWordToFile(String word, String path) {
+      boolean wordAdded = false;
+      try {
+         if( false == ScrabbleSuggester.isWordInFile(word, path) ) {
+            // Create file 
+            File targetFile = new File(path);
+            FileWriter fstream = new FileWriter(targetFile,true);
+            BufferedWriter out = new BufferedWriter(fstream);
+            out.write( word );
+            //Close the output stream
+            out.close();
+            wordAdded = true;
+         }
+      }catch (Exception e){//Catch exception if any
+         System.err.println("Error: " + e.getMessage());
+         return wordAdded;
+      }
+      return wordAdded;
+   }
+   
+   /**
+     * Returns true if the word was found in the file
+     *         false if the file DNE, or the word was not found in it.
+     */
    public static boolean isWordInFile(String word, String path) {
       boolean retVal = true;
       try {
