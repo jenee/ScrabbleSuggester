@@ -351,7 +351,7 @@ public class ScrabbleSuggesterTester {
       ScoreWordPair prev = new ScoreWordPair(-10, "dummyword!");
       for( ScoreWordPair elem :  sgst.wordList ) {
          System.err.print("\tcomparing prev("+prev+") to ");
-         System.err.println("elem("+ elem+")");
+         System.err.println("elem("+ elem+") ");
          if( prev != null && prev.compareTo(elem) < 0 ) {
             retVal &= false;
             break;
