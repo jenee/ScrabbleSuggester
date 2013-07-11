@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 import java.lang.String;
+import java.util.Collections;
 
 public class ScrabbleSuggester {
    public ArrayList<ScoreWordPair> wordList;
@@ -10,7 +11,7 @@ public class ScrabbleSuggester {
    public String filepath;
    
    public ScrabbleSuggester() {
-      this.maxSize = 113810;
+      this.maxSize = 25; //113810; // 25 for testing purposes
       this.wordList = new ArrayList<ScoreWordPair>(maxSize);
       this.filepath = "./word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
    }
@@ -29,7 +30,6 @@ public class ScrabbleSuggester {
    
    public boolean openFileScanner() {
       boolean fileFound = false;
-
       try {
          inputFile = new File(this.filepath);
          if( inputFile.exists() && inputFile.isFile() ) {
@@ -59,11 +59,18 @@ public class ScrabbleSuggester {
          System.err.print("\t"+i+": ");
          retVal &= wordList.add(temp);
          System.err.println( wordList.get(i-1) );
-      }
+      } 
    
       return retVal;
    }
    
+   public void sortWordList() {
+      Collections.sort(wordList);
+      System.err.println("\tAfter sort:");
+      for(int i = 0; i < wordList.size(); i++) {
+         System.err.println("\t"+i+": "+wordList.get(i) );
+      }
+   } 
    
    public static boolean isStringInString( String toFind, String str) {
       System.err.println("Find "+toFind+" in "+str);

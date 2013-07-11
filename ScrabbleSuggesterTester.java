@@ -342,8 +342,29 @@ public class ScrabbleSuggesterTester {
          System.err.println("XXXXXXX FAILED scoreAndStoreWordsFromFile test XXXXXXX");
       }
       
+      System.err.println("######### Test run of sortWordList #########");
+      totalTests++;
+      sgst.sortWordList();
+      
+      /*manually checking that it's sorted*/
+      retVal = true;
+      ScoreWordPair prev = new ScoreWordPair(-10, "dummyword!");
+      for( ScoreWordPair elem :  sgst.wordList ) {
+         if( prev != null && prev.compareTo(elem) < 0 ) {
+            retVal &= false;
+            break;
+         }
+         prev = elem;
+      }
+      if( retVal ) {
+         totalPassedTests++;
+         System.err.println("------- PASSED sortWordList test -------");
+      } else {
+         System.err.println("XXXXXXX FAILED sortWordList test XXXXXXX");
+      } 
       
       System.out.println("Passed "+totalPassedTests+" out of "+totalTests+" tests");
+      sgst.cleanup();
       return (totalPassedTests == totalTests ) ;
    }
    
