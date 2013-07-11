@@ -344,14 +344,15 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("######### Test run of sortWordList #########");
       totalTests++;
+      
       sgst.sortWordList();
       
       /*manually checking that it's sorted*/
       retVal = true;
-      ScoreWordPair prev = new ScoreWordPair(-10, "dummyword!");
+      ScoreWordPair prev = new ScoreWordPair(101, "dummyword!");
       for( ScoreWordPair elem :  sgst.wordList ) {
          System.err.print("\tcomparing prev("+prev+") to ");
-         System.err.println("elem("+ elem+") ");
+         System.err.println("elem("+ elem+") = "+prev.compareTo(elem));
          if( prev != null && prev.compareTo(elem) < 0 ) {
             retVal &= false;
             break;

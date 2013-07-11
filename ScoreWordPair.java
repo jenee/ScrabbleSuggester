@@ -17,6 +17,7 @@ public class ScoreWordPair implements Comparable<ScoreWordPair> {
    }
    
    /**
+    * Natural sort order is descending by score, then ascending alphabetically.
     * This -returns 0 if scores AND words are equal,
     *      -returns -1 if this.score < o.score 
     *              OR if scores are equal, and this.word is BEFORE o.word in
@@ -35,7 +36,7 @@ public class ScoreWordPair implements Comparable<ScoreWordPair> {
          int wordCompare = this.getWord().compareTo( o.getWord() );
          retVal = wordCompare;
       } else {
-         retVal = scoreCompare;
+         retVal = -1* scoreCompare;
       }
       return retVal;
    }
