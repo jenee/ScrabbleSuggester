@@ -17,12 +17,14 @@ public class ScoreWordPair implements Comparable<ScoreWordPair> {
    }
    
    /**
-    * Natural sort order is descending by score, then ascending alphabetically.
+    * Natural sort order is DESCENDING by score, then ascending alphabetically.
+    * NOTE: A pair with a HIGHER score is *less than* a pair with LOWER score.
+    *
     * This -returns 0 if scores AND words are equal,
-    *      -returns -1 if this.score < o.score 
+    *      -returns 1 if this.score < o.score 
     *              OR if scores are equal, and this.word is BEFORE o.word in
     *                    the alphabet
-    *      -returns 1 if this.score > o.score 
+    *      -returns -1 if this.score > o.score 
     *              OR if scores are equal, and this.word is AFTER o.word in
     *                    the alphabet
     * It should never be the case that words are the same and scores are
