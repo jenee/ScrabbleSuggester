@@ -504,20 +504,6 @@ public class ScrabbleSuggesterTester {
       System.err.println("######### Test run of writeSortedWordsToFile #########");
       totalTests++; 
       retVal &= sgst.writeSortedWordsToFile();
-      try {
-         Runtime r = Runtime.getRuntime();
-         System.err.println("ECHO: cat ./dictSortedByScoreDescending.txt");
-         
-         Process proc;               
-         proc = r.exec("cat ./dictSortedByScoreDescending.txt");
-
-         // Wait for the command to complete.
-         proc.waitFor();
-         
-      } catch (Exception e) {
-         System.err.println("Error with Runtime /cat: " + e.getMessage());
-
-      }
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- PASSED writeSortedWordsToFile test -------");
