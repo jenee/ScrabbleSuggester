@@ -99,16 +99,17 @@ public class ScrabbleSuggester {
    public static boolean isWordInFile(String word, String path) {
       boolean retVal = true;
       try {
-         RandomAccessFile f = new RandomAccessFile(path, "r");
-         System.err.println("\t RandomAccessFile created");
-         String fileContents = f.readUTF();
+         //RandomAccessFile f = new RandomAccessFile(path, "r");
+         //System.err.println("\t RandomAccessFile created");
+         //String fileContents = f.readUTF();
+         String fileContents = ScrabbleSuggester.readFileAsString(path);
          System.err.println("\t fileContents: "+fileContents);
 
          int indexOfWord = fileContents.indexOf(word);
          if( indexOfWord == -1 ) {
             retVal = false;
          }
-         f.close();
+         //f.close();
       } catch (Exception e) {
          System.err.println("isWordInFile: "+e.toString() );
          retVal = false;
@@ -116,6 +117,23 @@ public class ScrabbleSuggester {
       }
       return retVal;
    }
+   
+   /* the code below is borrowed from:
+   http://stackoverflow.com/questions/1656797/how-to-read-a-file-into-string-in-java
+   */
+   public static String readFileAsString(String filePath) throws IOException {
+        StringBuffer fileData = new StringBuffer();
+        BufferedReader reader = new BufferedReader(
+                new FileReader(filePath));
+        char[] buf = new char[1024];
+        int numRead=0;
+        while((numRead=reader.read(buf)) != -1){
+            String readData = String.valueOf(buf, 0, numRead);
+            fileData.append(readData);
+        }
+        reader.close();
+        return fileData.toString();
+    }
    
    public static boolean isStringInString( String toFind, String str) {
       System.err.println("Find "+toFind+" in "+str);
