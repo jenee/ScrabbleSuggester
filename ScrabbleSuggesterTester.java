@@ -245,16 +245,16 @@ public class ScrabbleSuggesterTester {
       
       try {
          File target = new File(path);
-         System.err.println("opened File target");
+         //System.err.println("opened File target");
          boolean targetDoesNotExist = target.createNewFile();
-         System.err.println("File target attempted creation");
+         //System.err.println("File target attempted creation");
 
          if( targetDoesNotExist == false ){
-            System.err.println("File target already exists");
+            //System.err.println("File target already exists");
             target.delete();
-            System.err.println("File target deleted");
+            //System.err.println("File target deleted");
             target.createNewFile();
-            System.err.println("File target re-created");
+            //System.err.println("File target re-created");
          }
       
 

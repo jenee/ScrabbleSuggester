@@ -100,7 +100,10 @@ public class ScrabbleSuggester {
       boolean retVal = true;
       try {
          RandomAccessFile f = new RandomAccessFile(path, "r");
+         System.err.println("\t RandomAccessFile created");
          String fileContents = f.readUTF();
+         System.err.println("\t fileContents: "+fileContents);
+
          int indexOfWord = fileContents.indexOf(word);
          if( indexOfWord == -1 ) {
             retVal = false;
