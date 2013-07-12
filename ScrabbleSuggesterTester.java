@@ -222,8 +222,6 @@ public class ScrabbleSuggesterTester {
       return retVal;
    }
    
-   
-   
    public static boolean testPrintScrabbleScoreWithEachLineInFile() {
       boolean retVal = true;    
       ScrabbleSuggester suggester = new ScrabbleSuggester();
@@ -231,6 +229,117 @@ public class ScrabbleSuggesterTester {
       
       retVal = suggester.printScrabbleScoreWithEachLineInFile( path );
       
+      return retVal;
+   }
+   
+   //Note: this doesn't actually test whether the word is being added, just
+   // that the file is growing
+   public static boolean testAddWordToFile() { 
+      boolean retVal = true;
+      String path = "./TestOutput/testAddWordToFile.txt";
+      String wordA = "have";
+      String wordB = "you";
+      String wordC = "ever";
+      String wordD = "been";
+      String wordC = "mellow";
+      
+      File target = new File(path);
+      
+      if( target.exists() ){
+         target.delete();
+      }
+      
+      target.createNewFile();
+      
+      int origSize = target.length(); //gets the size of the file.
+      target.close();
+      int curSize = origSize;
+      
+      System.err.println("\tTest adding "+wordA+" to "+path);
+      ScrabbleSuggester.addWordToFile( wordA, path );     
+      target = new File(path);
+      curSize = target.length();
+      target.close();
+      if( ( curSize > origSize ) == false ) { 
+         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+" > curSize");
+         System.err.println("= "+curSize);
+         retVal &= false;
+      }
+      
+      System.err.println("\tTest adding "+wordA+" to "+path);
+      origSize = curSize;
+      ScrabbleSuggester.addWordToFile( wordA, path );     
+      target = new File(path);
+      curSize = target.length();
+      target.close();
+      if( ( curSize == origSize ) == false ) { 
+         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"== curSize");
+         System.err.println("= "+curSize);
+         retVal &= false;
+      }
+      
+      System.err.println("\tTest adding "+wordB+" to "+path);
+      origSize = curSize;
+      ScrabbleSuggester.addWordToFile( wordB, path );     
+      target = new File(path);
+      curSize = target.length();
+      target.close();
+      if( ( curSize > origSize ) == false ) { 
+         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+         System.err.println("= "+curSize);
+         retVal &= false;
+      }
+      
+      System.err.println("\tTest adding "+wordC+" to "+path);
+      origSize = curSize;
+      ScrabbleSuggester.addWordToFile( wordC, path );     
+      target = new File(path);
+      curSize = target.length();
+      target.close();
+      if( ( curSize > origSize ) == false ) { 
+         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+         System.err.println("= "+curSize);
+         retVal &= false;
+      }
+      
+      System.err.println("\tTest adding "+wordD+" to "+path);
+      origSize = curSize;
+      ScrabbleSuggester.addWordToFile( wordD, path );     
+      target = new File(path);
+      curSize = target.length();
+      target.close();
+      if( ( curSize > origSize ) == false ) { 
+         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+         System.err.println("= "+curSize);
+         retVal &= false;
+      }
+      
+      System.err.println("\tTest adding "+wordE+" to "+path);
+      origSize = curSize;
+      ScrabbleSuggester.addWordToFile( wordE, path );     
+      target = new File(path);
+      curSize = target.length();
+      target.close();
+      if( ( curSize > origSize ) == false ) { 
+         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+         System.err.println("= "+curSize);
+         retVal &= false;
+      }
+      
+      System.err.println("\tTest adding "+wordC+" to "+path);
+      origSize = curSize;
+      ScrabbleSuggester.addWordToFile( wordC, path );     
+      target = new File(path);
+      curSize = target.length();
+      target.close();
+      if( ( curSize == origSize ) == false ) { 
+         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"== curSize");
+         System.err.println("= "+curSize);
+         retVal &= false;
+      }
+      
+      
+
       return retVal;
    }
    
@@ -274,6 +383,7 @@ public class ScrabbleSuggesterTester {
       System.err.println("----------------------------------------------");
       System.err.println("---BEGIN PARTIALLY-MANUALLY-EVALUATED TESTS---");
       System.err.println("----------------------------------------------");
+      System.err.println("----------------------------------------------");
      
       System.err.println("-----Testing readLinesFromFile----------------");
 
@@ -288,7 +398,8 @@ public class ScrabbleSuggesterTester {
          System.err.println("FAILED");
       }
       cummResult &= result;
-      
+      System.err.println("---------------------------------------------------");
+
       System.err.println("--Testing testPrintScrabbleScoreWithEachLineInFile--");
 
       System.err.println("-----START Output from testPrintScrabbleScoreWithEachLineInFile -----");
@@ -304,6 +415,17 @@ public class ScrabbleSuggesterTester {
       cummResult &= result;
       
       
+      System.err.println("---------------------------------------------------");
+
+      System.err.println("----------Testing testAddWordToFile----------");
+      result = testAddWordToFile()
+      if( result ) {
+         System.err.println("passed");
+      } else {
+         System.err.println("FAILED");
+      }
+      cummResult &= result;
+
       //Wrap-up message
       System.err.println("**********************************************");   
       if( cummResult ) {
@@ -344,9 +466,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("######### Test run of sortWordList #########");
       totalTests++;
-      
       sgst.sortWordList();
-      
       /*manually checking that it's sorted*/
       retVal = true;
       ScoreWordPair prev = new ScoreWordPair(101, "dummyword!");
@@ -369,6 +489,21 @@ public class ScrabbleSuggesterTester {
       } else {
          System.err.println("XXXXXXX FAILED sortWordList test XXXXXXX");
       } 
+      
+      System.err.println("######### Testing isWordInFile #########");
+      /*
+      totalTests++; 
+      TODO! Figure out test
+      //retVal &= sgst.isWordInFile();
+      if( retVal ) {
+         totalPassedTests++;
+         System.err.println("------- PASSED scoreAndStoreWordsFromFile test -------");
+      } else {
+         System.err.println("XXXXXXX FAILED scoreAndStoreWordsFromFile test XXXXXXX");
+      }
+      */
+      
+      
       
       System.out.println("Passed "+totalPassedTests+" out of "+totalTests+" tests");
       sgst.cleanup();
