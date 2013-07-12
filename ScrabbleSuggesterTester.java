@@ -245,13 +245,19 @@ public class ScrabbleSuggesterTester {
       
       try {
          File target = new File(path);
-         
-         if( target.exists() ){
+         System.err.println("opened File target");
+         boolean targetDoesNotExist = target.createNewFile();
+         System.err.println("File target attempted creation");
+
+         if( targetDoesNotExist == false ){
+            System.err.println("File target already exists");
             target.delete();
+            System.err.println("File target deleted");
+            target.createNewFile();
+            System.err.println("File target re-created");
          }
-         
-         target.createNewFile();
-         
+      
+
          long origSize = target.length(); //gets the size of the file.
          //target.close();
          long curSize = origSize;
@@ -516,8 +522,21 @@ public class ScrabbleSuggesterTester {
    }
    
    public static void main(String[] args) throws IOException {
-      //ScrabbleSuggesterTester.runStaticScrabbleSuggesterTests();
+      System.err.println("################################################");
+      System.err.println("################################################");
+      System.err.println("############### static tests ###################");
+      System.err.println("################################################");
+      System.err.println("################################################");
+
+      ScrabbleSuggesterTester.runStaticScrabbleSuggesterTests();
       
+      System.err.println("################################################");
+      System.err.println("################################################");
+      System.err.println("############ non-static tests ##################");
+      System.err.println("################################################");
+      System.err.println("################################################");
+
+
       ScrabbleSuggesterTester.runNonStaticScrabbleSuggesterTests();
    }
 }
