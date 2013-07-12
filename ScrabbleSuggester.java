@@ -72,6 +72,13 @@ public class ScrabbleSuggester {
       }
    } 
    
+   public boolean writeSortedWordsToFile() {
+      boolean retVal= true;
+      String path = "./dictSortedByScoreDescending.txt";
+      retVal &= writeWordsInListToFile(wordList, path);
+      return retVal;
+   }
+   
    public boolean writeWordsInListToFile(ArrayList<ScoreWordPair> list, String path ) {
       boolean retVal = true;
       
@@ -82,12 +89,13 @@ public class ScrabbleSuggester {
       return retVal;
    }
    
-   /*public void populateFilesForEachLetter() {
+   public void populateFilesForEachLetter() {
       int testSize = 25;
+      
       for(int i = 0; i < testSize; i++) {
          
       }
-   }*/
+   }
    
    
    
@@ -118,9 +126,6 @@ public class ScrabbleSuggester {
    public static boolean isWordInFile(String word, String path) {
       boolean retVal = true;
       try {
-         //RandomAccessFile f = new RandomAccessFile(path, "r");
-         //System.err.println("\t RandomAccessFile created");
-         //String fileContents = f.readUTF();
          String fileContents = ScrabbleSuggester.readFileAsString(path);
          System.err.println("\t fileContents: "+fileContents);
 
@@ -130,7 +135,7 @@ public class ScrabbleSuggester {
          }
          //f.close();
       } catch (Exception e) {
-         System.err.println("isWordInFile: "+e.toString() );
+         //System.err.println("isWordInFile: "+e.toString() );
          retVal = false;
          return retVal;
       }

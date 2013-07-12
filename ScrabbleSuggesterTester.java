@@ -501,8 +501,20 @@ public class ScrabbleSuggesterTester {
          System.err.println("XXXXXXX FAILED sortWordList test XXXXXXX");
       } 
       
-      System.err.println("######### Testing isWordInFile #########");
+      System.err.println("######### Test run of writeSortedWordsToFile #########");
+      totalTests++; 
+      retVal &= sgst.writeSortedWordsToFile();
+      if( retVal ) {
+         totalPassedTests++;
+         System.err.println("------- PASSED writeSortedWordsToFile test -------");
+      } else {
+         System.err.println("XXXXXXX FAILED writeSortedWordsToFile test XXXXXXX");
+      }
+      
+      
+      
       /*
+      System.err.println("######### Test run of scoreAndStoreWordsFromFile #########");
       totalTests++; 
       TODO! Figure out test
       //retVal &= sgst.isWordInFile();
