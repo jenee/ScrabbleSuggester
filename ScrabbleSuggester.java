@@ -80,7 +80,7 @@ public class ScrabbleSuggester {
             File targetFile = new File(path);
             FileWriter fstream = new FileWriter(targetFile,true);
             BufferedWriter out = new BufferedWriter(fstream);
-            out.write( word );
+            out.write( word +"\n");
             //Close the output stream
             out.close();
             wordAdded = true;
