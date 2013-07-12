@@ -15,3 +15,31 @@ abaci
 aahs
 aaliis
 aals
+17, aardvarks
+17, aardwolves
+16, aardvark
+15, aardwolf
+15, abamperes
+14, abampere
+13, aasvogels
+13, aback
+12, aasvogel
+12, abacuses
+12, abakas
+11, abaka
+11, abamp
+10, aahing
+10, abacas
+10, abacus
+10, abaft
+10, abalones
+9, aahed
+9, abaca
+9, abaci
+9, abalone
+7, aahs
+6, aah
+6, aaliis
+5, aalii
+4, aals
+3, aal
