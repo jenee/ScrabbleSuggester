@@ -241,103 +241,108 @@ public class ScrabbleSuggesterTester {
       String wordB = "you";
       String wordC = "ever";
       String wordD = "been";
-      String wordC = "mellow";
+      String wordE = "mellow";
       
-      File target = new File(path);
-      
-      if( target.exists() ){
-         target.delete();
-      }
-      
-      target.createNewFile();
-      
-      int origSize = target.length(); //gets the size of the file.
-      target.close();
-      int curSize = origSize;
-      
-      System.err.println("\tTest adding "+wordA+" to "+path);
-      ScrabbleSuggester.addWordToFile( wordA, path );     
-      target = new File(path);
-      curSize = target.length();
-      target.close();
-      if( ( curSize > origSize ) == false ) { 
-         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+" > curSize");
-         System.err.println("= "+curSize);
-         retVal &= false;
-      }
-      
-      System.err.println("\tTest adding "+wordA+" to "+path);
-      origSize = curSize;
-      ScrabbleSuggester.addWordToFile( wordA, path );     
-      target = new File(path);
-      curSize = target.length();
-      target.close();
-      if( ( curSize == origSize ) == false ) { 
-         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"== curSize");
-         System.err.println("= "+curSize);
-         retVal &= false;
-      }
-      
-      System.err.println("\tTest adding "+wordB+" to "+path);
-      origSize = curSize;
-      ScrabbleSuggester.addWordToFile( wordB, path );     
-      target = new File(path);
-      curSize = target.length();
-      target.close();
-      if( ( curSize > origSize ) == false ) { 
-         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
-         System.err.println("= "+curSize);
-         retVal &= false;
-      }
-      
-      System.err.println("\tTest adding "+wordC+" to "+path);
-      origSize = curSize;
-      ScrabbleSuggester.addWordToFile( wordC, path );     
-      target = new File(path);
-      curSize = target.length();
-      target.close();
-      if( ( curSize > origSize ) == false ) { 
-         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
-         System.err.println("= "+curSize);
-         retVal &= false;
-      }
-      
-      System.err.println("\tTest adding "+wordD+" to "+path);
-      origSize = curSize;
-      ScrabbleSuggester.addWordToFile( wordD, path );     
-      target = new File(path);
-      curSize = target.length();
-      target.close();
-      if( ( curSize > origSize ) == false ) { 
-         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
-         System.err.println("= "+curSize);
-         retVal &= false;
-      }
-      
-      System.err.println("\tTest adding "+wordE+" to "+path);
-      origSize = curSize;
-      ScrabbleSuggester.addWordToFile( wordE, path );     
-      target = new File(path);
-      curSize = target.length();
-      target.close();
-      if( ( curSize > origSize ) == false ) { 
-         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
-         System.err.println("= "+curSize);
-         retVal &= false;
-      }
-      
-      System.err.println("\tTest adding "+wordC+" to "+path);
-      origSize = curSize;
-      ScrabbleSuggester.addWordToFile( wordC, path );     
-      target = new File(path);
-      curSize = target.length();
-      target.close();
-      if( ( curSize == origSize ) == false ) { 
-         System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"== curSize");
-         System.err.println("= "+curSize);
-         retVal &= false;
-      }
-      
+      try {
+         File target = new File(path);
+         
+         if( target.exists() ){
+            target.delete();
+         }
+         
+         target.createNewFile();
+         
+         long origSize = target.length(); //gets the size of the file.
+         //target.close();
+         long curSize = origSize;
+         
+         System.err.println("\tTest adding "+wordA+" to "+path);
+         ScrabbleSuggester.addWordToFile( wordA, path );     
+         //target = new File(path);
+         curSize = target.length();
+         //target.close();
+         if( ( curSize > origSize ) == false ) { 
+            System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+" > curSize");
+            System.err.println("= "+curSize);
+            retVal &= false;
+         }
+         
+         System.err.println("\tTest adding "+wordA+" to "+path);
+         origSize = curSize;
+         ScrabbleSuggester.addWordToFile( wordA, path );     
+         //target = new File(path);
+         curSize = target.length();
+         //target.close();
+         if( ( curSize == origSize ) == false ) { 
+            System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"== curSize");
+            System.err.println("= "+curSize);
+            retVal &= false;
+         }
+         
+         System.err.println("\tTest adding "+wordB+" to "+path);
+         origSize = curSize;
+         ScrabbleSuggester.addWordToFile( wordB, path );     
+         //target = new File(path);
+         curSize = target.length();
+         //target.close();
+         if( ( curSize > origSize ) == false ) { 
+            System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+            System.err.println("= "+curSize);
+            retVal &= false;
+         }
+         
+         System.err.println("\tTest adding "+wordC+" to "+path);
+         origSize = curSize;
+         ScrabbleSuggester.addWordToFile( wordC, path );     
+         //target = new File(path);
+         curSize = target.length();
+         //target.close();
+         if( ( curSize > origSize ) == false ) { 
+            System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+            System.err.println("= "+curSize);
+            retVal &= false;
+         }
+         
+         System.err.println("\tTest adding "+wordD+" to "+path);
+         origSize = curSize;
+         ScrabbleSuggester.addWordToFile( wordD, path );     
+         //target = new File(path);
+         curSize = target.length();
+         //target.close();
+         if( ( curSize > origSize ) == false ) { 
+            System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+            System.err.println("= "+curSize);
+            retVal &= false;
+         }
+         
+         System.err.println("\tTest adding "+wordE+" to "+path);
+         origSize = curSize;
+         ScrabbleSuggester.addWordToFile( wordE, path );     
+         //target = new File(path);
+         curSize = target.length();
+         //target.close();
+         if( ( curSize > origSize ) == false ) { 
+            System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"> curSize");
+            System.err.println("= "+curSize);
+            retVal &= false;
+         }
+         
+         System.err.println("\tTest adding "+wordC+" to "+path);
+         origSize = curSize;
+         ScrabbleSuggester.addWordToFile( wordC, path );     
+         //target = new File(path);
+         curSize = target.length();
+         //target.close();
+         if( ( curSize == origSize ) == false ) { 
+            System.err.print("\t^^^^FAILED^^^^, origSize= "+origSize+"== curSize");
+            System.err.println("= "+curSize);
+            retVal &= false;
+         }
+      } catch (Exception e) {
+         System.err.println("Error: " + e.getMessage());
+         retVal = false;
+         return retVal;
+      }    
       
 
       return retVal;
@@ -418,7 +423,7 @@ public class ScrabbleSuggesterTester {
       System.err.println("---------------------------------------------------");
 
       System.err.println("----------Testing testAddWordToFile----------");
-      result = testAddWordToFile()
+      result = testAddWordToFile();
       if( result ) {
          System.err.println("passed");
       } else {
