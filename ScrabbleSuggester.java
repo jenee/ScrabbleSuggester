@@ -11,7 +11,7 @@ public class ScrabbleSuggester {
    public String filepath;
    
    public ScrabbleSuggester() {
-      this.maxSize = 30; //113810; // 30 for testing purposes
+      this.maxSize = 100; //113810; // 30 for testing purposes
       this.wordList = new ArrayList<ScoreWordPair>(maxSize);
       this.filepath = "./word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
    }
@@ -81,10 +81,12 @@ public class ScrabbleSuggester {
    
    public boolean writeWordsInListToFile(ArrayList<ScoreWordPair> list, String path ) {
       boolean retVal = true;
-      
+      //always returns true because the retVal of AddWordToFile kept 
+      //    making things difficult.
+      System.err.println("writeWordsInListToFile: list.size = "+list.size());
       for( ScoreWordPair p : list ) {
          //retVal &= addWordToFile( p.getWord(), path );
-         retVal &= addWordToFile( p.toString() , path );
+         addWordToFile( p.toString() , path );
       
       }
       

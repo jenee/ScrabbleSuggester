@@ -1,45 +1,98 @@
-aardvarks
-aardwolves
-aardwolf
-abamperes
-aasvogels
-aback
-abacuses
-abakas
-aahing
-abacas
-abaft
-abalones
-aahed
-abaci
-aahs
-aaliis
-aals
+20, abbreviating
+20, abbreviations
+19, abbreviated
+19, abbreviation
+19, abdominally
+18, abbreviates
 17, aardvarks
 17, aardwolves
+17, abandonments
+17, abbreviate
 16, aardvark
+16, abandonment
+16, abaxial
+16, abaxile
+16, abbotcy
+16, abdicating
+16, abdications
 15, aardwolf
 15, abamperes
+15, abbacy
+15, abbotcies
+15, abdicated
+15, abdication
 14, abampere
+14, abandoning
+14, abasedly
+14, abasements
+14, abashing
+14, abatements
+14, abbacies
+14, abdicates
+14, abdominal
 13, aasvogels
 13, aback
+13, abandoned
+13, abasement
+13, abashed
+13, abatement
+13, abbeys
+13, abdicate
+13, abdomens
+13, abdomina
 12, aasvogel
 12, abacuses
 12, abakas
+12, abamps
+12, abashes
+12, abatable
+12, abbatial
+12, abbesses
+12, abbey
+12, abdomen
 11, abaka
 11, abamp
+11, abandons
+11, abattises
+11, abattoirs
 10, aahing
 10, abacas
 10, abacus
 10, abaft
 10, abalones
+10, abandon
+10, abash
+10, abasing
+10, abating
+10, abatises
+10, abattoir
+10, abbess
+10, abbots
 9, aahed
 9, abaca
 9, abaci
 9, abalone
+9, abased
+9, abasers
+9, abated
+9, abaters
+9, abators
+9, abattis
+9, abbes
+9, abbot
+8, abaser
+8, abases
+8, abater
+8, abates
+8, abatis
+8, abator
+8, abbe
 7, aahs
+7, abase
+7, abate
 6, aah
 6, aaliis
+6, abas
 5, aalii
 4, aals
 3, aal
