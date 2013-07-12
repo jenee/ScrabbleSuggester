@@ -72,6 +72,25 @@ public class ScrabbleSuggester {
       }
    } 
    
+   public boolean writeWordsInListToFile(ArrayList<ScoreWordPair> list, String path ) {
+      boolean retVal = true;
+      
+      for( ScoreWordPair p : list ) {
+         retVal &= addWordToFile( p.getWord(), path );
+      }
+      
+      return retVal;
+   }
+   
+   /*public void populateFilesForEachLetter() {
+      int testSize = 25;
+      for(int i = 0; i < testSize; i++) {
+         
+      }
+   }*/
+   
+   
+   
    public static boolean addWordToFile(String word, String path) {
       boolean wordAdded = false;
       try {
