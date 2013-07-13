@@ -86,7 +86,7 @@ public class ScrabbleSuggester {
       System.err.println("writeWordsInListToFile: list.size = "+list.size());
       for( ScoreWordPair p : list ) {
          //retVal &= addWordToFile( p.getWord(), path );
-         addWordToFile( p.toString() , path );
+         addWordToFile( p.toString(), path );
       
       }
       
