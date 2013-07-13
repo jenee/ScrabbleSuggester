@@ -512,6 +512,18 @@ public class ScrabbleSuggesterTester {
       }
       
       
+      System.err.println("######### Test run of populateFilesForEachLetter #########");
+      totalTests++; 
+      sgst.populateFilesForEachLetter();
+      if( retVal ) {
+         totalPassedTests++;
+         System.err.println("------- RAN populateFilesForEachLetter test -------");
+      } else {
+         System.err.println("XXXXXXX FAILED TO RUN populateFilesForEachLetter test XXXXXXX");
+      }
+      
+      
+      
       
       /*
       System.err.println("######### Test run of scoreAndStoreWordsFromFile #########");
