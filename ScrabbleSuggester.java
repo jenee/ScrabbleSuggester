@@ -133,7 +133,7 @@ public class ScrabbleSuggester {
          String fileContents = ScrabbleSuggester.readFileAsString(path);
          //System.err.println("\t fileContents: "+fileContents);
 
-         int indexOfWord = fileContents.indexOf(word);
+         int indexOfWord = fileContents.indexOf(word+"\n");
          if( indexOfWord == -1 ) {
             retVal = false;
          }
