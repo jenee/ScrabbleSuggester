@@ -94,7 +94,7 @@ public class ScrabbleSuggester {
    }
    
    public void populateFilesForEachLetter() {
-      String filePrefix = "./OutputFiles/wordsContaining_";
+      String filePrefix = "./TestOutput/wordsContaining_";
       String fileSuffix = ".txt";
       
       for(int i = 0; i < maxSize; i++) {
