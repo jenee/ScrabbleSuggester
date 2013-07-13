@@ -94,10 +94,16 @@ public class ScrabbleSuggester {
    }
    
    public void populateFilesForEachLetter() {
-      int testSize = 25;
+      String filePrefix = "./OutputFiles/wordsContaining_";
+      String fileSuffix = ".txt";
       
-      for(int i = 0; i < testSize; i++) {
-         
+      for(int i = 0; i < maxSize; i++) {
+         ScoreWordPair p = wordList.get(i);
+         String word = p.getWord();
+         for (char ch: word.toCharArray()) {
+            String tempFilename = filePrefix + String.valueOf(ch) + fileSuffix;
+            addWordToFile(word, tempFilename);
+         }
       }
    }
    
