@@ -96,3 +96,6 @@
 5, aalii
 4, aals
 3, aal
+5, aba
+3, aas
+2, aa
