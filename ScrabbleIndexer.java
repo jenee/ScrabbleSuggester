@@ -3,20 +3,20 @@ import java.io.*;
 import java.lang.String;
 import java.util.Collections;
 
-public class ScrabbleSuggester {
+public class ScrabbleIndexer {
    public ArrayList<ScoreWordPair> wordList;
    public int maxSize;
    public File inputFile;
    public Scanner fileScanner;
    public String filepath;
    
-   public ScrabbleSuggester() {
+   public ScrabbleIndexer() {
       this.maxSize = 100; //113810; // 30 for testing purposes
       this.wordList = new ArrayList<ScoreWordPair>(maxSize);
       this.filepath = "./word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
    }
    
-   public ScrabbleSuggester( String path ) {
+   public ScrabbleIndexer( String path ) {
       this.maxSize = 113810;
       this.wordList = new ArrayList<ScoreWordPair>(maxSize);
       this.filepath = path;
@@ -112,7 +112,7 @@ public class ScrabbleSuggester {
    public static boolean addWordToFile(String word, String path) {
       boolean wordAdded = false;
       try {
-         if( false == ScrabbleSuggester.isWordInFile(word, path) ) {
+         if( false == ScrabbleIndexer.isWordInFile(word, path) ) {
             // Create file 
             File targetFile = new File(path);
             FileWriter fstream = new FileWriter(targetFile,true);
@@ -136,7 +136,7 @@ public class ScrabbleSuggester {
    public static boolean isWordInFile(String word, String path) {
       boolean retVal = true;
       try {
-         String fileContents = ScrabbleSuggester.readFileAsString(path);
+         String fileContents = ScrabbleIndexer.readFileAsString(path);
          //System.err.println("\t fileContents: "+fileContents);
 
          int indexOfWord = fileContents.indexOf(word+"\n");

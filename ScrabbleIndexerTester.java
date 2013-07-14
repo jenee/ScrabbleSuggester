@@ -2,7 +2,7 @@ import java.lang.String;
 import java.util.*;
 import java.io.*;
 
-public class ScrabbleSuggesterTester {
+public class ScrabbleIndexerTester {
    
 
    /*tests to see whether a letter exists in a string or not*/
@@ -10,7 +10,7 @@ public class ScrabbleSuggesterTester {
       boolean cummRetVal = true;
       boolean retVal = true;
       boolean expected = true;
-      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      ScrabbleIndexer indexer = new ScrabbleIndexer();
       String str1 = "hello";
       String str2 = "What a wonderful day!";
       char ch1 = 'h';
@@ -20,7 +20,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +ch1+" in "+str1);
       expected = true;
-      retVal = suggester.isLetterInString(ch1, str1);
+      retVal = indexer.isLetterInString(ch1, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -29,7 +29,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +ch2+" in "+str1);
       expected = false;
-      retVal = suggester.isLetterInString(ch2, str1);
+      retVal = indexer.isLetterInString(ch2, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -38,7 +38,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +ch3+" in "+str1);
       expected = false;
-      retVal = suggester.isLetterInString(ch3, str1);
+      retVal = indexer.isLetterInString(ch3, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -47,7 +47,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +ch1+" in "+str2);
       expected = true;
-      retVal = suggester.isLetterInString(ch1, str2);
+      retVal = indexer.isLetterInString(ch1, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -56,7 +56,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +ch2+" in "+str2);
       expected = true;
-      retVal = suggester.isLetterInString(ch2, str2);
+      retVal = indexer.isLetterInString(ch2, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -65,7 +65,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +ch3+" in "+str2);
       expected = false;
-      retVal = suggester.isLetterInString(ch3, str2);
+      retVal = indexer.isLetterInString(ch3, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -81,7 +81,7 @@ public class ScrabbleSuggesterTester {
       boolean cummRetVal = true;
       boolean retVal = true;
       boolean expected = true;
-      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      ScrabbleIndexer indexer = new ScrabbleIndexer();
       String str1 = "hello";
       String str2 = "What a label day!";
       String toFind1 = "ha";
@@ -91,7 +91,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +toFind1+" in "+str1);
       expected = false;
-      retVal = suggester.isStringInString(toFind1, str1);
+      retVal = indexer.isStringInString(toFind1, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -100,7 +100,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +toFind2+" in "+str1);
       expected = true;
-      retVal = suggester.isStringInString(toFind2, str1);
+      retVal = indexer.isStringInString(toFind2, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -109,7 +109,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +toFind3+" in "+str1);
       expected = true;
-      retVal = suggester.isStringInString(toFind3, str1);
+      retVal = indexer.isStringInString(toFind3, str1);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -118,7 +118,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +toFind1+" in "+str2);
       expected = true;
-      retVal = suggester.isStringInString(toFind1, str2);
+      retVal = indexer.isStringInString(toFind1, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -127,7 +127,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +toFind2+" in "+str2);
       expected = true;
-      retVal = suggester.isStringInString(toFind2, str2);
+      retVal = indexer.isStringInString(toFind2, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -136,7 +136,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("------ test for " +toFind3+" in "+str2);
       expected = false;
-      retVal = suggester.isStringInString(toFind3, str2);
+      retVal = indexer.isStringInString(toFind3, str2);
       cummRetVal &= (expected == retVal);
       System.err.println("------ expected: "+expected+";\tactual: "+retVal);
       if( !cummRetVal ) {
@@ -149,7 +149,7 @@ public class ScrabbleSuggesterTester {
    
    public static boolean testComputeScrabbleScore() {
       boolean cummRetVal = true;
-      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      ScrabbleIndexer indexer = new ScrabbleIndexer();
       int expected = -1;
       String testStr = "";
       int actual = -1;
@@ -197,7 +197,7 @@ public class ScrabbleSuggesterTester {
                break;
          }
          
-         actual = suggester.computeScrabbleScore( testStr );
+         actual = indexer.computeScrabbleScore( testStr );
          
          if( actual != expected ) {
             cummRetVal &= false;
@@ -214,20 +214,20 @@ public class ScrabbleSuggesterTester {
    
    public static boolean testReadLinesFromFile() {
       boolean retVal = true;    
-      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      ScrabbleIndexer indexer = new ScrabbleIndexer();
       String path = "/Users/admin/Documents/Code/InterviewCode/Etsy/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
       
-      retVal = suggester.readLinesFromFile( path );
+      retVal = indexer.readLinesFromFile( path );
       
       return retVal;
    }
    
    public static boolean testPrintScrabbleScoreWithEachLineInFile() {
       boolean retVal = true;    
-      ScrabbleSuggester suggester = new ScrabbleSuggester();
+      ScrabbleIndexer indexer = new ScrabbleIndexer();
       String path = "/Users/admin/Documents/Code/InterviewCode/Etsy/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt";
       
-      retVal = suggester.printScrabbleScoreWithEachLineInFile( path );
+      retVal = indexer.printScrabbleScoreWithEachLineInFile( path );
       
       return retVal;
    }
@@ -263,7 +263,7 @@ public class ScrabbleSuggesterTester {
          long curSize = origSize;
          
          System.err.println("\tTest adding "+wordA+" to "+path);
-         ScrabbleSuggester.addWordToFile( wordA, path );     
+         ScrabbleIndexer.addWordToFile( wordA, path );     
          //target = new File(path);
          curSize = target.length();
          //target.close();
@@ -275,7 +275,7 @@ public class ScrabbleSuggesterTester {
          
          System.err.println("\tTest adding "+wordA+" to "+path);
          origSize = curSize;
-         ScrabbleSuggester.addWordToFile( wordA, path );     
+         ScrabbleIndexer.addWordToFile( wordA, path );     
          //target = new File(path);
          curSize = target.length();
          //target.close();
@@ -287,7 +287,7 @@ public class ScrabbleSuggesterTester {
          
          System.err.println("\tTest adding "+wordB+" to "+path);
          origSize = curSize;
-         ScrabbleSuggester.addWordToFile( wordB, path );     
+         ScrabbleIndexer.addWordToFile( wordB, path );     
          //target = new File(path);
          curSize = target.length();
          //target.close();
@@ -299,7 +299,7 @@ public class ScrabbleSuggesterTester {
          
          System.err.println("\tTest adding "+wordC+" to "+path);
          origSize = curSize;
-         ScrabbleSuggester.addWordToFile( wordC, path );     
+         ScrabbleIndexer.addWordToFile( wordC, path );     
          //target = new File(path);
          curSize = target.length();
          //target.close();
@@ -311,7 +311,7 @@ public class ScrabbleSuggesterTester {
          
          System.err.println("\tTest adding "+wordD+" to "+path);
          origSize = curSize;
-         ScrabbleSuggester.addWordToFile( wordD, path );     
+         ScrabbleIndexer.addWordToFile( wordD, path );     
          //target = new File(path);
          curSize = target.length();
          //target.close();
@@ -323,7 +323,7 @@ public class ScrabbleSuggesterTester {
          
          System.err.println("\tTest adding "+wordE+" to "+path);
          origSize = curSize;
-         ScrabbleSuggester.addWordToFile( wordE, path );     
+         ScrabbleIndexer.addWordToFile( wordE, path );     
          //target = new File(path);
          curSize = target.length();
          //target.close();
@@ -335,7 +335,7 @@ public class ScrabbleSuggesterTester {
          
          System.err.println("\tTest adding "+wordC+" to "+path);
          origSize = curSize;
-         ScrabbleSuggester.addWordToFile( wordC, path );     
+         ScrabbleIndexer.addWordToFile( wordC, path );     
          //target = new File(path);
          curSize = target.length();
          //target.close();
@@ -354,7 +354,7 @@ public class ScrabbleSuggesterTester {
       return retVal;
    }
    
-   public static boolean runStaticScrabbleSuggesterTests() {
+   public static boolean runStaticScrabbleIndexerTests() {
       boolean cummResult = true;
       boolean result;
       
@@ -449,15 +449,15 @@ public class ScrabbleSuggesterTester {
       return cummResult;
    }
    
-   public static boolean runNonStaticScrabbleSuggesterTests() {
+   public static boolean runNonStaticScrabbleIndexerTests() {
       int totalPassedTests = 0;
       int totalTests = 0;
       boolean retVal = true;
-      ScrabbleSuggester sgst = new ScrabbleSuggester();
+      ScrabbleIndexer ndxr = new ScrabbleIndexer();
       
       System.err.println("######### Testing openFileScanner #########");
       totalTests++;
-      retVal &= sgst.openFileScanner();
+      retVal &= ndxr.openFileScanner();
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- PASSED openFileScanner test -------");
@@ -467,7 +467,7 @@ public class ScrabbleSuggesterTester {
 
       System.err.println("######### Testing scoreAndStoreWordsFromFile #########");
       totalTests++;
-      retVal &= sgst.scoreAndStoreWordsFromFile();
+      retVal &= ndxr.scoreAndStoreWordsFromFile();
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- PASSED scoreAndStoreWordsFromFile test -------");
@@ -477,11 +477,11 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("######### Test run of sortWordList #########");
       totalTests++;
-      sgst.sortWordList();
+      ndxr.sortWordList();
       /*manually checking that it's sorted*/
       retVal = true;
       ScoreWordPair prev = new ScoreWordPair(101, "dummyword!");
-      for( ScoreWordPair elem :  sgst.wordList ) {
+      for( ScoreWordPair elem :  ndxr.wordList ) {
          //System.err.print("\tcomparing prev("+prev+") to ");
          //System.err.println("elem("+ elem+") ");
          int prevScore = prev.getScore().intValue();
@@ -503,7 +503,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("######### Test run of writeSortedWordsToFile #########");
       totalTests++; 
-      retVal &= sgst.writeSortedWordsToFile();
+      retVal &= ndxr.writeSortedWordsToFile();
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- PASSED writeSortedWordsToFile test -------");
@@ -514,7 +514,7 @@ public class ScrabbleSuggesterTester {
       
       System.err.println("######### Test run of populateFilesForEachLetter #########");
       totalTests++; 
-      sgst.populateFilesForEachLetter();
+      ndxr.populateFilesForEachLetter();
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- RAN populateFilesForEachLetter test -------");
@@ -529,7 +529,7 @@ public class ScrabbleSuggesterTester {
       System.err.println("######### Test run of scoreAndStoreWordsFromFile #########");
       totalTests++; 
       TODO! Figure out test
-      //retVal &= sgst.isWordInFile();
+      //retVal &= ndxr.isWordInFile();
       if( retVal ) {
          totalPassedTests++;
          System.err.println("------- PASSED scoreAndStoreWordsFromFile test -------");
@@ -541,7 +541,7 @@ public class ScrabbleSuggesterTester {
       
       
       System.out.println("Passed "+totalPassedTests+" out of "+totalTests+" tests");
-      sgst.cleanup();
+      ndxr.cleanup();
       return (totalPassedTests == totalTests ) ;
    }
    
@@ -552,7 +552,7 @@ public class ScrabbleSuggesterTester {
       System.err.println("################################################");
       System.err.println("################################################");
 
-      ScrabbleSuggesterTester.runStaticScrabbleSuggesterTests();
+      ScrabbleIndexerTester.runStaticScrabbleIndexerTests();
       
       System.err.println("################################################");
       System.err.println("################################################");
@@ -561,6 +561,6 @@ public class ScrabbleSuggesterTester {
       System.err.println("################################################");
 
 
-      ScrabbleSuggesterTester.runNonStaticScrabbleSuggesterTests();
+      ScrabbleIndexerTester.runNonStaticScrabbleIndexerTests();
    }
 }
