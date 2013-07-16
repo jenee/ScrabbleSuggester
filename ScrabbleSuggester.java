@@ -9,6 +9,8 @@ public class ScrabbleSuggester {
    public String queryString;
    public String pathOfSmallestFile;
    
+   public ArrayList<String> topWords;
+   public Scanner fileScanner;
    
    public ScrabbleSuggester(String queryStr, int k) {
       this.queryString = queryStr;
@@ -48,4 +50,54 @@ public class ScrabbleSuggester {
       return pathOfSmallestFile;
    }
    
+   public void cleanup() {
+      if( this.fileScanner != null ) {
+         fileScanner.close();
+      }
+   }
+   
+   public boolean openFileScanner() {
+      boolean fileFound = false;
+      try {
+         File smallestFile = new File(this.pathOfSmallestFile);
+         if( smallestFile.exists() && smallestFile.isFile() ) {
+            fileScanner = new Scanner( pathOfSmallestFile );
+            fileFound = true;
+         }
+      } catch (FileNotFoundException e ) {
+         System.err.println("File not found at "+this.filepath);
+         return fileFound;
+      }
+      return fileFound;
+   }
+   
+   
+   public boolean getTopWordsFromFile( ) {
+      if( this.fileScanner == null ) {
+         this.openFileScanner();
+      }
+      int i = 0;
+      
+      String line = "";
+      while ( fileScanner.hasNextLine() && curNumMatches < numMatchesDesired ) {
+      
+         line = fileScanner.nextLine();
+         
+         if( line.contains(queryString) ) {
+            curNumMatches++;
+            topWords.add(line);
+         }
+         
+      } 
+   
+   }
+   
+   public boolean printTopScoringWords() {
+      
+      System.out.println("Top "+curNumMatches+" words containing "+queryString+":");
+      
+      for(String word: topWords ) {
+         System.out.println(word);
+      }
+   }
 }
