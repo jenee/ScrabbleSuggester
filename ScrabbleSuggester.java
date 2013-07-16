@@ -17,6 +17,7 @@ public class ScrabbleSuggester {
       this.numMatchesDesired = k;
       this.curNumMatches = 0;
       this.pathOfSmallestFile ="";
+      topWords = new ArrayList<String>(numMatchesDesired+1);
    }
    
    public ScrabbleSuggester(String queryStr) {
@@ -24,6 +25,8 @@ public class ScrabbleSuggester {
       this.numMatchesDesired = 10;
       this.curNumMatches = 0;
       this.pathOfSmallestFile ="";
+      topWords = new ArrayList<String>(numMatchesDesired+1);
+
    }
    
    public ScrabbleSuggester() {
@@ -31,6 +34,8 @@ public class ScrabbleSuggester {
       this.numMatchesDesired = 10;
       this.curNumMatches = 0;
       this.pathOfSmallestFile ="";
+      topWords = new ArrayList<String>(numMatchesDesired+1);
+
    }
    
    
@@ -45,6 +50,7 @@ public class ScrabbleSuggester {
          File targetFile = new File(tempFilename);
          if( targetFile.length() < minSize ) {
             minSize = targetFile.length();
+            System.err.println(" smallest filesize = " +minSize);
             pathOfSmallestFile = tempFilename;
          }
       }
@@ -63,18 +69,18 @@ public class ScrabbleSuggester {
       try {
          File smallestFile = new File(this.pathOfSmallestFile);
          if( smallestFile.exists() && smallestFile.isFile() ) {
-            fileScanner = new Scanner( pathOfSmallestFile );
+            fileScanner = new Scanner( smallestFile );
             fileFound = true;
          }
-      } catch (FileNotFoundException e ) {
-         System.err.println("File not found at "+this.pathOfSmallestFile);
+      } catch (Exception e ) {
+         System.err.println("ERROR in open file Scanner: "+e.getMessage() );
          return fileFound;
       }
       return fileFound;
    }
    
    
-   public boolean getTopWordsFromFile( ) {
+   public void getTopWordsFromFile( ) {
       if( this.fileScanner == null ) {
          this.openFileScanner();
       }
@@ -82,9 +88,9 @@ public class ScrabbleSuggester {
       
       String line = "";
       while ( fileScanner.hasNextLine() && curNumMatches < numMatchesDesired ) {
-      
          line = fileScanner.nextLine();
-         
+         System.out.println("line: "+line+"; cur:"+curNumMatches+"; total:"+numMatchesDesired);
+
          if( line.contains(queryString) ) {
             curNumMatches++;
             topWords.add(line);
@@ -104,8 +110,21 @@ public class ScrabbleSuggester {
    }
    
    public void runSuggester() {
+      
+      System.err.println("getPathOfSmallestLetterContainsFile");
+
       this.getPathOfSmallestLetterContainsFile();
+      System.err.println(" smallest = "+this.pathOfSmallestFile);
+      
+      this.openFileScanner();
+      
+      System.err.println("getTopWordsFromFile");
       this.getTopWordsFromFile();
+      System.err.println("topWords.size() = "+topWords.size());
+
+      
+      System.err.println("printTopScoringWords");
+
       this.printTopScoringWords();
       this.cleanup();
    }
