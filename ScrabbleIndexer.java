@@ -125,12 +125,12 @@ public class ScrabbleIndexer {
    public void initContainsCharLists() {
       int charIntAsciiOffset = 49; 
 
-      containsCharLists = new  HashMap< Character, ArrayList<String> > ();
+      wordsContainingCharLists = new  HashMap< Character, ArrayList<String> > ();
       
       for(int i = 0; i <26; i++) {
          ArrayList<String> singleList = new ArrayList<String>();
          Character letter= new Character( (char) ( i  + charIntAsciiOffset ) );
-         containsCharLists.put(letter, singleList);
+         wordsContainingCharLists.put(letter, singleList);
       }
    }
    
@@ -145,11 +145,11 @@ public class ScrabbleIndexer {
          for (char ch: word.toCharArray()) {
             Character c = new Character(ch);
             
-            ArrayList<String> listofWords = containsCharLists.get(c);
+            ArrayList<String> listOfWords = wordsContainingCharLists.get(c);
             
             listOfWords.add(word);
             
-            containsCharLists.put(c, listOfWords);
+            wordsContainingCharLists.put(c, listOfWords);
             
          }
       }
@@ -160,9 +160,9 @@ public class ScrabbleIndexer {
       String fileSuffix = "_hash.txt";
       System.out.print("Populating Contains-<letter> files");
       try {
-         for(char i = a; i<=z; i++) {
+         for(char i = 'a'; i<= 'z'; i++) {
             Character c = new Character(i);
-            ArrayList<String> wordsWithLetter = containsCharLists.get(c);
+            ArrayList<String> wordsWithLetter = wordsContainingCharLists.get(c);
             
             
             String tempFilename = filePrefix + String.valueOf(c) + fileSuffix;
