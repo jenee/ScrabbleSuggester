@@ -9,6 +9,8 @@ public class ScrabbleIndexer {
    public File inputFile;
    public Scanner fileScanner;
    public String filepath;
+   
+   
    public HashMap< Character, ArrayList<String> > wordsContainingCharLists;
    
    public ScrabbleIndexer() {
@@ -123,15 +125,24 @@ public class ScrabbleIndexer {
    }
    
    public void initContainsCharLists() {
-      int charIntAsciiOffset = 49; 
+      //int charIntAsciiOffset = 49; 
+      int intToCharAsciiOffset = 97; 
 
       wordsContainingCharLists = new  HashMap< Character, ArrayList<String> > ();
       
       for(int i = 0; i <26; i++) {
          ArrayList<String> singleList = new ArrayList<String>();
-         Character letter= new Character( (char) ( i  + charIntAsciiOffset ) );
+         Character letter= new Character( (char) ( i  + intToCharAsciiOffset ) );
          wordsContainingCharLists.put(letter, singleList);
       }
+      
+      for(int i = 0; i <26; i++) {
+         Character letter= new Character( (char) ( i  + intToCharAsciiOffset ) );
+         ArrayList<String> singleList = wordsContainingCharLists.get( letter );
+         System.out.print("in map, key=\'"+letter+"\', length of list:");
+         System.out.println(""+singleList.size());
+      }
+
    }
    
    
