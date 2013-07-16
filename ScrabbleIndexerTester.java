@@ -568,9 +568,10 @@ public class ScrabbleIndexerTester {
    public static void main(String[] args) throws IOException {
       //ScrabbleIndexerTester.runAllIndexerTests();
       
-      String filename = String args[1];
+      String filename = args[0];
       System.err.println("Cmd line param for filename: "+filename);
+      
       ScrabbleIndexer ndxr = new ScrabbleIndexer(filename);
-      nxdr.runIndexer();
+      ndxr.runIndexer();
    }
 }

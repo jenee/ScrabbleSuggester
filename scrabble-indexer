@@ -1,2 +1,10 @@
-echo $1
-echo "echo $1"
+
+echo "filename = $1"
+
+echo "javac ScrabbleIndexer.java ScrabbleIndexerTester.java ScoreWordPair.java"
+javac ScrabbleIndexer.java ScrabbleIndexerTester.java ScoreWordPair.java
+
+echo "java ScrabbleIndexerTester $1"
+java ScrabbleIndexerTester $1
+
+

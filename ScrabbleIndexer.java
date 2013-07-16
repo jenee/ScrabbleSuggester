@@ -74,10 +74,11 @@ public class ScrabbleIndexer {
    
    public void sortWordList() {
       Collections.sort(wordList);
-      System.err.println("\tAfter sort:");
+      
+      /*System.err.println("\tAfter sort:");
       for(int i = 0; i < wordList.size(); i++) {
          System.err.println("\t"+i+": "+wordList.get(i) );
-      }
+      }*/
    } 
    
    public boolean writeSortedWordsToFile() {
@@ -104,8 +105,10 @@ public class ScrabbleIndexer {
    public void populateFilesForEachLetter() {
       String filePrefix = "./TestOutput/wordsContaining_";
       String fileSuffix = ".txt";
-      
+      System.out.print("Populating Contains-<letter> files");
+
       for(int i = 0; i < maxSize; i++) {
+         System.out.print(".");
          ScoreWordPair p = wordList.get(i);
          String word = p.getWord();
          for (char ch: word.toCharArray()) {
@@ -257,7 +260,7 @@ public class ScrabbleIndexer {
          
          while (i++ <= testMax && fileScanner.hasNextLine() ) {
             line = fileScanner.nextLine();
-            System.out.println("line read: "+line);
+            //System.out.println("line read: "+line);
          }
          fileFound = true;
       } catch (FileNotFoundException e ) {
@@ -278,11 +281,11 @@ public class ScrabbleIndexer {
          int testMax= 25; 
          String line = "";
          
-         System.out.println("score,word");
+         //System.out.println("score,word");
          while (i++ <= testMax && fileScanner.hasNextLine() ) {
             line = fileScanner.nextLine();
             score = computeScrabbleScore(line);
-            System.out.println(score+","+line);
+            //System.out.println(score+","+line);
          }
          fileFound = true;
       } catch (FileNotFoundException e ) {
