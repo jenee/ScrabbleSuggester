@@ -1,0 +1,8 @@
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+echo "javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java"
+
+java ScrabbleSuggesterTester
+echo "java ScrabbleSuggesterTester"
+
+
+
