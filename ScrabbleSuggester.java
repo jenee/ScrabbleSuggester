@@ -33,6 +33,8 @@ public class ScrabbleSuggester {
       this.pathOfSmallestFile ="";
    }
    
+   
+   
    public String getPathOfSmallestLetterContainsFile() {
       String filePrefix = "./TestOutput/wordsContaining_";
       String fileSuffix = ".txt";
@@ -92,12 +94,19 @@ public class ScrabbleSuggester {
    
    }
    
-   public boolean printTopScoringWords() {
+   public void printTopScoringWords() {
       
       System.out.println("Top "+curNumMatches+" words containing "+queryString+":");
       
       for(String word: topWords ) {
          System.out.println(word);
       }
+   }
+   
+   public void runSuggester() {
+      this.getPathOfSmallestLetterContainsFile();
+      this.getTopWordsFromFile();
+      this.printTopScoringWords();
+      this.cleanup();
    }
 }

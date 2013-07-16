@@ -48,6 +48,14 @@ public class ScrabbleSuggesterTester {
       return retVal;
    }
    
+   public static void testRunSuggester() {
+      
+      ScrabbleSuggester sgst = new ScrabbleSuggester("get",10);
+      sgst.runSuggester();
+      
+   }
+   
+   
    public static boolean runAllStaticScrabbleSuggesterTests() {
       int totalTests = 0;
       int testsPassed = 0;
@@ -74,7 +82,8 @@ public class ScrabbleSuggesterTester {
    }
 
    public static void main(String[] args) {
-      runAllStaticScrabbleSuggesterTests();
+      //runAllStaticScrabbleSuggesterTests();
+      testRunSuggester();
    }
 
 }
