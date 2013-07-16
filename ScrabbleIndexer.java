@@ -74,7 +74,8 @@ public class ScrabbleIndexer {
          retVal &= wordList.add(temp);
          System.err.println( wordList.get(i-1) );
       } 
-   
+      //System.err.println("wordList.size()="+wordList.size()+"; maxSize="+maxSize); 
+      this. maxSize = wordList.size();
       return retVal;
    }
    
@@ -147,9 +148,9 @@ public class ScrabbleIndexer {
    
    
    public void populateHashMapForContainsLetter() {
-      int charIntAsciiOffset = 49; 
+      int charIntAsciiOffset = 49;
       for(int i = 0; i < maxSize; i++) {
-         System.out.print(".");
+         System.out.print("."+i);
          ScoreWordPair p = wordList.get(i);
          String word = p.getWord();
          
@@ -160,6 +161,7 @@ public class ScrabbleIndexer {
             
             listOfWords.add(word);
             
+            //put the modified list back into hash map
             wordsContainingCharLists.put(c, listOfWords);
             
          }
