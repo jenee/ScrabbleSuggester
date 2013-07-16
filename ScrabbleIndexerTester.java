@@ -545,7 +545,7 @@ public class ScrabbleIndexerTester {
       return (totalPassedTests == totalTests ) ;
    }
    
-   public static void main(String[] args) throws IOException {
+   public static void runAllIndexerTests() {
       System.err.println("################################################");
       System.err.println("################################################");
       System.err.println("############### static tests ###################");
@@ -562,5 +562,15 @@ public class ScrabbleIndexerTester {
 
 
       ScrabbleIndexerTester.runNonStaticScrabbleIndexerTests();
+   
+   }
+   
+   public static void main(String[] args) throws IOException {
+      //ScrabbleIndexerTester.runAllIndexerTests();
+      
+      String filename = String args[1];
+      System.err.println("Cmd line param for filename: "+filename);
+      ScrabbleIndexer ndxr = new ScrabbleIndexer(filename);
+      nxdr.runIndexer();
    }
 }

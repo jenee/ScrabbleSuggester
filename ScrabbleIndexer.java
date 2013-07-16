@@ -22,6 +22,14 @@ public class ScrabbleIndexer {
       this.filepath = path;
    }
    
+   public void runIndexer() {
+      this.openFileScanner();
+      this.scoreAndStoreWordsFromFile();
+      this.sortWordList();
+      this.writeSortedWordsToFile();
+      this.populateFilesForEachLetter();
+   }
+   
    public void cleanup() {
       if( this.fileScanner != null ) {
          fileScanner.close();
