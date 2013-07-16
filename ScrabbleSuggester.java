@@ -67,7 +67,7 @@ public class ScrabbleSuggester {
             fileFound = true;
          }
       } catch (FileNotFoundException e ) {
-         System.err.println("File not found at "+this.filepath);
+         System.err.println("File not found at "+this.pathOfSmallestFile);
          return fileFound;
       }
       return fileFound;
