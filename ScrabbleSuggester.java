@@ -128,4 +128,15 @@ public class ScrabbleSuggester {
       this.printTopScoringWords();
       this.cleanup();
    }
+   
+   public static void main(String [] args) {
+      String queryStr = args[0];
+      
+      Scanner cmdLnArgsScanner = new Scanner (args[1]);
+      int numTopWords = cmdLnArgsScanner.nextInt();
+      
+      ScrabbleSuggester sgst = new ScrabbleSuggester(queryStr, numTopWords);
+      sgst.runSuggester();
+      
+   }
 }
