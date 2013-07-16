@@ -363,6 +363,9 @@ public class ScrabbleIndexer {
   
    
    public static void main(String[] args) throws IOException {
+      String filename = args[0];
+      System.err.println("Cmd line param for filename: "+filename);
+      
       ScrabbleIndexer ndxr = new ScrabbleIndexer(filename);
       ndxr.runIndexer();
    }
