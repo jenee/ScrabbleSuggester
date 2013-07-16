@@ -4,7 +4,10 @@ echo "filename = $1"
 echo "javac ScrabbleIndexer.java ScrabbleIndexerTester.java ScoreWordPair.java"
 javac ScrabbleIndexer.java ScrabbleIndexerTester.java ScoreWordPair.java
 
-echo "java ScrabbleIndexerTester $1"
-java ScrabbleIndexerTester $1
+#echo "java ScrabbleIndexerTester $1"
+#java ScrabbleIndexerTester $1
+
+echo "java ScrabbleIndexer $1"
+java ScrabbleIndexer $1
 
 
