@@ -26,7 +26,7 @@ public class ScrabbleIndexer {
       this.openFileScanner();
       this.scoreAndStoreWordsFromFile();
       this.sortWordList();
-      this.writeSortedWordsToFile();
+      //this.writeSortedWordsToFile();
       this.populateFilesForEachLetter();
    }
    
