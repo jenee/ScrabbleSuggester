@@ -9,6 +9,7 @@ public class ScrabbleIndexer {
    public File inputFile;
    public Scanner fileScanner;
    public String filepath;
+   public HashMap< Character, ArrayList<String> > wordsContainingCharLists;
    
    public ScrabbleIndexer() {
       this.maxSize = 100; //113810; // 30 for testing purposes
@@ -27,7 +28,10 @@ public class ScrabbleIndexer {
       this.scoreAndStoreWordsFromFile();
       this.sortWordList();
       //this.writeSortedWordsToFile();
-      this.populateFilesForEachLetter();
+      //this.populateFilesForEachLetter();
+      this.initContainsCharLists();
+      this.populateHashMapForContainsLetter();
+      this.populateFilesForEachLetterFromHashMap();
    }
    
    public void cleanup() {
@@ -118,6 +122,67 @@ public class ScrabbleIndexer {
       }
    }
    
+   public void initContainsCharLists() {
+      int charIntAsciiOffset = 49; 
+
+      containsCharLists = new  HashMap< Character, ArrayList<String> > ();
+      
+      for(int i = 0; i <26; i++) {
+         ArrayList<String> singleList = new ArrayList<String>();
+         Character letter= new Character( (char) ( i  + charIntAsciiOffset ) );
+         containsCharLists.put(letter, singleList);
+      }
+   }
+   
+   
+   public void populateHashMapForContainsLetter() {
+      int charIntAsciiOffset = 49; 
+      for(int i = 0; i < maxSize; i++) {
+         System.out.print(".");
+         ScoreWordPair p = wordList.get(i);
+         String word = p.getWord();
+         
+         for (char ch: word.toCharArray()) {
+            Character c = new Character(ch);
+            
+            ArrayList<String> listofWords = containsCharLists.get(c);
+            
+            listOfWords.add(word);
+            
+            containsCharLists.put(c, listOfWords);
+            
+         }
+      }
+   }
+   
+   public void populateFilesForEachLetterFromHashMap() {
+      String filePrefix = "./TestOutput/wordsContaining_";
+      String fileSuffix = "_hash.txt";
+      System.out.print("Populating Contains-<letter> files");
+      try {
+         for(char i = a; i<=z; i++) {
+            Character c = new Character(i);
+            ArrayList<String> wordsWithLetter = containsCharLists.get(c);
+            
+            
+            String tempFilename = filePrefix + String.valueOf(c) + fileSuffix;
+            File letterFile = new File(tempFilename);
+            FileWriter fstream = new FileWriter(letterFile,true);
+            BufferedWriter out = new BufferedWriter(fstream);
+            
+            
+            for(String word : wordsWithLetter ) {
+               out.write( word +"\n");
+            }
+            //Close the output stream
+            out.close();
+         
+         }
+      }catch (Exception e){//Catch exception if any
+         System.err.println("Error: " + e.getMessage());
+      }
+      
+   }
    
    
    public static boolean addWordToFile(String word, String path) {
@@ -297,9 +362,10 @@ public class ScrabbleIndexer {
    
   
    
-   /*public static void main(String[] args) throws IOException {
-
-   }*/
+   public static void main(String[] args) throws IOException {
+      ScrabbleIndexer ndxr = new ScrabbleIndexer(filename);
+      ndxr.runIndexer();
+   }
    
    
 }
