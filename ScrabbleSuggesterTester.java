@@ -4,7 +4,7 @@ public class ScrabbleSuggesterTester {
       boolean retVal = true;
       
       ScrabbleSuggester s1 = new ScrabbleSuggester();
-      if(s1.queryString == "" && s1.numMatchesDesired == 10) {
+      if(s1.queryString == "z" && s1.numMatchesDesired == 10) {
          retVal &= true;
       } else {
          System.err.print("Default construction of S1 failed:");
@@ -32,6 +32,22 @@ public class ScrabbleSuggesterTester {
       return retVal;
    }
    
+   public static boolean testGetPathOfSmallestLetterContainsFile() {
+      boolean retVal = true ;
+      
+      ScrabbleSuggester sgst = new ScrabbleSuggester("get",10);
+      String smallestFile = sgst.getPathOfSmallestLetterContainsFile();
+      
+      if(smallestFile.equals("./TestOutput/wordsContaining_g.txt") ) {
+         retVal &= true;
+      } else {
+         retVal &= false;
+         System.err.println("Smallest file method *may* be in error, wasn't g");
+      }
+      
+      return retVal;
+   }
+   
    public static boolean runAllStaticScrabbleSuggesterTests() {
       int totalTests = 0;
       int testsPassed = 0;
@@ -43,6 +59,15 @@ public class ScrabbleSuggesterTester {
       } else {
          System.err.println("** FAILED testConstruction ");
       }
+      
+      totalTests++;
+      if( testGetPathOfSmallestLetterContainsFile() ) {
+         testsPassed++;
+         System.err.println("** passed testGetPathOfSmallestLetterContainsFile ");
+      } else {
+         System.err.println("** FAILED testGetPathOfSmallestLetterContainsFile ");
+      }
+      
       
       System.err.println("PASSED "+testsPassed+" OF "+totalTests+" TESTS");
       return (totalTests == testsPassed);
