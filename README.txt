@@ -36,7 +36,7 @@ The second part, the scrabble suggester, uses the on-disk index created during t
    It takes two arguments: a string Q and an integer K.
    It then returns the top K words that contain the query string Q, sorted by their scores.
  
- >>USAGE<<: ./scrabble-suggester <Q> <K>
+>>USAGE<<: ./scrabble-suggester <Q> <K>
 
 The design is optimized to make the second part run as fast as possible, so most of the heavy-lifting happens in part 1.
 
@@ -49,6 +49,13 @@ The indexer only has to be called once, ever. Every subsequent suggester call us
 Scrabble Indexer Design
 --------------------------
 The
+
+(1) read dict into program
+(2) sort from highest to lowest score
+(3) From sorted list of words, write into words-containing-<letter> files
+
+    
+
 
 
 
