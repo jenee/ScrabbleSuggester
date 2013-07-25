@@ -383,6 +383,11 @@ public class ScrabbleIndexer {
   
    
    public static void main(String[] args) throws IOException {
+      if(args.length < 1 ) {
+         System.out.println("USAGE: ./scrabble-indexer <word-list-file>");
+         return;
+      }
+   
       String filename = args[0];
       System.err.println("Cmd line param for filename: "+filename);
       
