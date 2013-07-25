@@ -130,15 +130,67 @@ KEY:  m == # of letters in QUERY
 Over (######) trial runs!
 
 time scrabble-indexer <word-list-file>
+Virgin environment:
 (1)
-real	0m2.976s
-user	0m4.444s
-sys	0m0.590s
+real	0m1.824s
+user	0m3.597s
+sys	0m0.190s
 (2)
+real	0m1.841s
+user	0m3.640s
+sys	0m0.191s
+(3)
+real	0m1.834s
+user	0m3.622s
+sys	0m0.188s
+(4)
+real	0m1.809s
+user	0m3.612s
+sys	0m0.190s
+(5)
+real	0m1.828s
+user	0m3.628s
+sys	0m0.193s
+(6)
+real	0m1.838s
+user	0m3.609s
+sys	0m0.201s
+(7)
+real	0m1.827s
+user	0m3.599s
+sys	0m0.184s
+(8)
+real	0m1.830s
+user	0m3.629s
+sys	0m0.190s
+(9)
+real	0m1.841s
+user	0m3.642s
+sys	0m0.194s
+(10)
+real	0m1.847s
+user	0m3.651s
+sys	0m0.194s
+
+Indexer Already run
+(1)
+real	0m1.797s
+user	0m3.550s
+sys	0m0.183s
+(2)
+real	0m1.830s
+user	0m3.641s
+sys	0m0.191s
+(3)
+real	0m1.836s
+user	0m3.645s
+sys	0m0.188s
+(4)
+real	0m1.813s
+user	0m3.634s
+sys	0m0.183s
 
 
-
-
-time scrabble-suggest <QUERY> <K>
+time scrabble-suggester <QUERY> <K>
 
 

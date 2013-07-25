@@ -50,7 +50,7 @@ public class ScrabbleSuggester {
          File targetFile = new File(tempFilename);
          if( targetFile.length() < minSize ) {
             minSize = targetFile.length();
-            System.err.println(" smallest filesize = " +minSize);
+            //System.err.println(" smallest filesize = " +minSize);
             pathOfSmallestFile = tempFilename;
          }
       }
@@ -88,7 +88,7 @@ public class ScrabbleSuggester {
       String line = "";
       while ( fileScanner.hasNextLine() && curNumMatches < numMatchesDesired ) {
          line = fileScanner.nextLine();
-         System.out.println("line: "+line+"; cur:"+curNumMatches+"; total:"+numMatchesDesired);
+         //System.err.println("line: "+line+"; cur:"+curNumMatches+"; total:"+numMatchesDesired);
 
          if( line.contains(queryString) ) {
             curNumMatches++;
@@ -110,19 +110,19 @@ public class ScrabbleSuggester {
    
    public void runSuggester() {
       
-      System.err.println("getPathOfSmallestLetterContainsFile");
+      //System.err.println("getPathOfSmallestLetterContainsFile");
 
       this.getPathOfSmallestLetterContainsFile();
-      System.err.println(" smallest = "+this.pathOfSmallestFile);
+      //System.err.println(" smallest = "+this.pathOfSmallestFile);
       
       this.openSmallestFileScanner();
       
-      System.err.println("getTopWordsFromFile");
+      //System.err.println("getTopWordsFromFile");
       this.getTopWordsFromFile();
-      System.err.println("topWords.size() = "+topWords.size());
+      //System.err.println("topWords.size() = "+topWords.size());
 
       
-      System.err.println("printTopScoringWords");
+      //System.err.println("printTopScoringWords");
 
       this.printTopScoringWords();
       this.cleanup();
