@@ -147,7 +147,7 @@ public class ScrabbleIndexer {
    public void populateHashMapForContainsLetter() {
       int charIntAsciiOffset = 49;
       for(int i = 0; i < maxSize; i++) {
-         //System.out.print("."+i);
+         System.out.print("."+i);
          ScoreWordPair p = wordList.get(i);
          String word = p.getWord();
          
@@ -156,13 +156,19 @@ public class ScrabbleIndexer {
             
             ArrayList<String> listOfWords = wordsContainingCharLists.get(c);
             
+            
             //check to see that word isn't already in the list
             if( listOfWords.indexOf(word) == -1 ) {
                //add the new word
+            
                listOfWords.add(word);
                //put the modified list back into hash map
                wordsContainingCharLists.put(c, listOfWords);
+            
+            }/* else {
+               //System.err.print("\""+c+"-"+word);
             }
+            */
             
          }
       }
