@@ -64,7 +64,7 @@ public class ScrabbleSuggester {
       }
    }
    
-   public boolean openFileScanner() {
+   public boolean openSmallestFileScanner() {
       boolean fileFound = false;
       try {
          File smallestFile = new File(this.pathOfSmallestFile);
@@ -79,10 +79,9 @@ public class ScrabbleSuggester {
       return fileFound;
    }
    
-   
    public void getTopWordsFromFile( ) {
       if( this.fileScanner == null ) {
-         this.openFileScanner();
+         this.openSmallestFileScanner();
       }
       int i = 0;
       
@@ -116,7 +115,7 @@ public class ScrabbleSuggester {
       this.getPathOfSmallestLetterContainsFile();
       System.err.println(" smallest = "+this.pathOfSmallestFile);
       
-      this.openFileScanner();
+      this.openSmallestFileScanner();
       
       System.err.println("getTopWordsFromFile");
       this.getTopWordsFromFile();

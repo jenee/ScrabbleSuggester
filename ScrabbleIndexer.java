@@ -109,9 +109,10 @@ public class ScrabbleIndexer {
       return retVal;
    }
    
+   
    public void populateFilesForEachLetter() {
-      String filePrefix = "./TestOutput/wordsContaining_";
-      String fileSuffix = ".txt";
+      String filePrefix = "./IndexFiles/wordsContaining_";
+      String fileSuffix = "_SLOWBADWAY.txt";
       System.out.print("Populating Contains-<letter> files");
 
       for(int i = 0; i < maxSize; i++) {
@@ -146,7 +147,6 @@ public class ScrabbleIndexer {
 
    }
    
-   
    public void populateHashMapForContainsLetter() {
       int charIntAsciiOffset = 49;
       for(int i = 0; i < maxSize; i++) {
@@ -169,8 +169,8 @@ public class ScrabbleIndexer {
    }
    
    public void populateFilesForEachLetterFromHashMap() {
-      String filePrefix = "./TestOutput/wordsContaining_";
-      String fileSuffix = "_hash.txt";
+      String filePrefix = "./IndexFiles/wordsContaining_";
+      String fileSuffix = ".txt";
       System.out.print("Populating Contains-<letter> files");
       try {
          for(char i = 'a'; i<= 'z'; i++) {
@@ -196,7 +196,6 @@ public class ScrabbleIndexer {
       }
       
    }
-   
    
    public static boolean addWordToFile(String word, String path) {
       boolean wordAdded = false;
