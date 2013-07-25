@@ -29,8 +29,6 @@ public class ScrabbleIndexer {
       this.openFileScanner();
       this.scoreAndStoreWordsFromFile();
       this.sortWordList();
-      //this.writeSortedWordsToFile();
-      //this.populateFilesForEachLetter();
       this.initContainsCharLists();
       this.populateHashMapForContainsLetter();
       this.populateFilesForEachLetterFromHashMap();
@@ -140,8 +138,8 @@ public class ScrabbleIndexer {
       for(int i = 0; i <26; i++) {
          Character letter= new Character( (char) ( i  + intToCharAsciiOffset ) );
          ArrayList<String> singleList = wordsContainingCharLists.get( letter );
-         System.out.print("in map, key=\'"+letter+"\', length of list:");
-         System.out.println(""+singleList.size());
+         System.err.print("in map, key=\'"+letter+"\', length of list:");
+         System.err.println(""+singleList.size());
       }
 
    }
@@ -158,10 +156,13 @@ public class ScrabbleIndexer {
             
             ArrayList<String> listOfWords = wordsContainingCharLists.get(c);
             
-            listOfWords.add(word);
-            
-            //put the modified list back into hash map
-            wordsContainingCharLists.put(c, listOfWords);
+            //check to see that word isn't already in the list
+            if( listOfWords.indexOf(word) == -1 ) {
+               //add the new word
+               listOfWords.add(word);
+               //put the modified list back into hash map
+               wordsContainingCharLists.put(c, listOfWords);
+            }
             
          }
       }
