@@ -193,4 +193,45 @@ sys	0m0.183s
 
 time scrabble-suggester <QUERY> <K>
 
+real	0m0.786s
+user	0m1.318s
+sys	0m0.087s
+
+real	0m0.785s
+user	0m1.314s
+sys	0m0.086s
+
+real	0m0.775s
+user	0m1.297s
+sys	0m0.084s
+
+real	0m0.801s
+user	0m1.326s
+sys	0m0.085s
+
+real	0m0.792s
+user	0m1.344s
+sys	0m0.084s
+
+real	0m0.783s
+user	0m1.307s
+sys	0m0.085s
+
+real	0m0.777s
+user	0m1.325s
+sys	0m0.084s
+
+real	0m0.784s
+user	0m1.305s
+sys	0m0.085s
+
+real	0m0.778s
+user	0m1.299s
+sys	0m0.083s
+
+real	0m0.793s
+user	0m1.314s
+sys	0m0.086s
+
+
 
