@@ -41,7 +41,7 @@ public class ScrabbleSuggester {
    
    
    public String getPathOfSmallestLetterContainsFile() {
-      String filePrefix = "./TestOutput/wordsContaining_";
+      String filePrefix = "./IndexFiles/wordsContaining_";
       String fileSuffix = ".txt";
       long minSize = Long.MAX_VALUE;
       
@@ -129,6 +129,11 @@ public class ScrabbleSuggester {
    }
    
    public static void main(String [] args) {
+      if(args.length < 2 ) {
+         System.out.println("USAGE: ./scrabble-suggester <QueryStr> <K>");
+         return;
+      }
+   
       String queryStr = args[0];
       
       Scanner cmdLnArgsScanner = new Scanner (args[1]);

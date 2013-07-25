@@ -127,7 +127,6 @@ public class ScrabbleIndexer {
    }
    
    public void initContainsCharLists() {
-      //int charIntAsciiOffset = 49; 
       int intToCharAsciiOffset = 97; 
 
       wordsContainingCharLists = new  HashMap< Character, ArrayList<String> > ();
@@ -169,10 +168,18 @@ public class ScrabbleIndexer {
    }
    
    public void populateFilesForEachLetterFromHashMap() {
-      String filePrefix = "./IndexFiles/wordsContaining_";
+      String folderPrefix = "./IndexFiles/";
+      String filePrefix = folderPrefix+ "wordsContaining_";
       String fileSuffix = ".txt";
-      System.out.print("Populating Contains-<letter> files");
+
       try {
+         //Check to see if folder exists, and if it doesn't, then create it
+         File folderFile = new File(folderPrefix);
+         if( false == folderFile.exists() || false == folderFile.isDirectory() ) {
+            folderFile.mkdir();
+         }
+      
+         // Populating contains-<letter> files
          for(char i = 'a'; i<= 'z'; i++) {
             Character c = new Character(i);
             ArrayList<String> wordsWithLetter = wordsContainingCharLists.get(c);
