@@ -130,6 +130,14 @@ KEY:  m == # of letters in QUERY
 Over (######) trial runs!
 
 time scrabble-indexer <word-list-file>
+(1)
+real	0m2.976s
+user	0m4.444s
+sys	0m0.590s
+(2)
+
+
+
 
 time scrabble-suggest <QUERY> <K>
 

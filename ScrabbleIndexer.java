@@ -70,9 +70,9 @@ public class ScrabbleIndexer {
          line = fileScanner.nextLine();
          score = computeScrabbleScore(line);
          ScoreWordPair temp = new ScoreWordPair(score, line);
-         System.err.print("\t"+i+": ");
+         //System.err.print("\t"+i+": ");
          retVal &= wordList.add(temp);
-         System.err.println( wordList.get(i-1) );
+         //System.err.println( wordList.get(i-1) );
       } 
       //System.err.println("wordList.size()="+wordList.size()+"; maxSize="+maxSize); 
       this. maxSize = wordList.size();
@@ -149,7 +149,7 @@ public class ScrabbleIndexer {
    public void populateHashMapForContainsLetter() {
       int charIntAsciiOffset = 49;
       for(int i = 0; i < maxSize; i++) {
-         System.out.print("."+i);
+         //System.out.print("."+i);
          ScoreWordPair p = wordList.get(i);
          String word = p.getWord();
          
