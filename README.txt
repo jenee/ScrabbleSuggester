@@ -50,6 +50,23 @@ Scrabble Indexer Design
 --------------------------
 The
 
+ Now, to decide on the on-disc storage method.
+    I could:
+    (1) write the score/word tuples into a file, then sort that file by number
+    (2) write a file for each score, and put words with that score into those files
+    (3) Use a (serializable) hash table, where the score is the key, and the
+       value is a list of words with that score.
+    (4) throw pre-computing scores out all together, and make files for words that
+       contain each letter. Then, when I get a sequence of letters, Find all the
+       lines that the "letter" files have in common, and only search those words.
+       This could take up a lot more space, because of storing duplicate words,
+       but could potentially be faster. This method could also be
+       combined with other methods that optimize for searching highest-scoring
+       words first. I'd have to account for duplicate letters somehow, when
+       creating and when using the files created.
+    
+
+
 (1) read dict into program
 (2) sort from highest to lowest score
 (3) From sorted list of words, write into words-containing-<letter> files
@@ -80,4 +97,40 @@ Additionally, since the index-files are already sorted from highest to lowest sc
                 increment the num of words found.
    (c) If number of words found is >= numMatches, then return and
           be done with it!
+
+
+
+
+-----------------------------
+Performance Measurements
+-----------------------------
+~~~Theoretical Run-time Measurement ~~~
+   
+Scrabble Indexer: 
+KEY:  n == total # of words
+      m == # of letters in each word   
+* Reading all file lines into program and storing each in ArrayList: O(n)
+* * For each line, compute score for each word by going through letter: O(m)
+* Sort the words by their scores, descending: O(nlogn)
+* For each letter in each word, write the word into the corresponding letter's index-file: O(n*m)
+~~~OVERALL: O(nlogn) + O(n*m) + (cost of writing to disk)
+
+Scrabble Suggester:
+KEY:  m == # of letters in QUERY
+      n == # of words in the smallest letter-index-file 
+      b == # of letters in each word in the smallest letter-index-file
+* For each letter in the QUERY word, get index file size: O(m)
+* For each word in smallest indexfile O(n)
+* * store it if it contains the QUERY str: O(b)
+* * (Short circuit if you've found K words that contain QUERY)
+~~~OVERALL: O(m) + O(n*b) 
+
+~~~Practical Run-time Measurement ~~~
+
+Over (######) trial runs!
+
+time scrabble-indexer <word-list-file>
+
+time scrabble-suggest <QUERY> <K>
+
 
