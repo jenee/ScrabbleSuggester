@@ -157,19 +157,12 @@ public class ScrabbleIndexer {
             ArrayList<String> listOfWords = wordsContainingCharLists.get(c);
             
             
-            //check to see that word isn't already in the list
-            if( listOfWords.indexOf(word) == -1 ) {
-               //add the new word
+            //add the new word
+            listOfWords.add(word);
             
-               listOfWords.add(word);
-               //put the modified list back into hash map
-               wordsContainingCharLists.put(c, listOfWords);
-            
-            }/* else {
-               //System.err.print("\""+c+"-"+word);
-            }
-            */
-            
+            //put the modified list back into hash map
+            wordsContainingCharLists.put(c, listOfWords);
+         
          }
       }
    }
@@ -198,8 +191,14 @@ public class ScrabbleIndexer {
             BufferedWriter out = new BufferedWriter(fstream);
             
             
+            
+            //prev string to see that word isn't already in the list
+            String prev = "";
             for(String word : wordsWithLetter ) {
-               out.write( word +"\n");
+               if(prev.equals(word) == false ) {
+                  out.write( word +"\n");
+                  prev = word;
+               }
             }
             //Close the output stream
             out.close();
