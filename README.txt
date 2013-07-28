@@ -191,6 +191,14 @@ user	0m3.634s
 sys	0m0.183s
 
 
+
+WITH DUPLICATE REDUCTION:
+real	0m2.192s
+user	0m3.906s
+sys	0m0.375s
+
+
+
 time scrabble-suggester <QUERY> <K>
 
 real	0m0.786s
