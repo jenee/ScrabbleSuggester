@@ -187,7 +187,7 @@ public class ScrabbleIndexer {
             
             String tempFilename = filePrefix + String.valueOf(c) + fileSuffix;
             File letterFile = new File(tempFilename);
-            FileWriter fstream = new FileWriter(letterFile,true);
+            FileWriter fstream = new FileWriter(letterFile);
             BufferedWriter out = new BufferedWriter(fstream);
             
             
