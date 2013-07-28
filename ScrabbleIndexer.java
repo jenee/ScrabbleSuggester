@@ -138,8 +138,8 @@ public class ScrabbleIndexer {
       for(int i = 0; i <26; i++) {
          Character letter= new Character( (char) ( i  + intToCharAsciiOffset ) );
          ArrayList<String> singleList = wordsContainingCharLists.get( letter );
-         System.err.print("in map, key=\'"+letter+"\', length of list:");
-         System.err.println(""+singleList.size());
+         //System.err.print("in map, key=\'"+letter+"\', length of list:");
+         //System.err.println(""+singleList.size());
       }
 
    }
@@ -277,8 +277,8 @@ public class ScrabbleIndexer {
    
    public static boolean isLetterInString( char letter, String str) {
       String toFind = String.valueOf(letter);
-      System.err.println("letter to find as char: \'"+letter+"\' as str:"+toFind);
-      System.err.println("Find "+toFind+" in "+str);
+      //System.err.println("letter to find as char: \'"+letter+"\' as str:"+toFind);
+      //System.err.println("Find "+toFind+" in "+str);
       return str.contains(toFind);
    }
    
@@ -394,7 +394,7 @@ public class ScrabbleIndexer {
       }
    
       String filename = args[0];
-      System.err.println("Cmd line param for filename: "+filename);
+      //System.err.println("Cmd line param for filename: "+filename);
       
       ScrabbleIndexer ndxr = new ScrabbleIndexer(filename);
       ndxr.runIndexer();

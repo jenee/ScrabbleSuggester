@@ -1,0 +1,55 @@
+RUN 1
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 2
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 3
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 4
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 5
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 6
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 7
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 8
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 9
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 10
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester
+RUN 11
+javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
+Top 1 words containing embezzlements:
+embezzlements
+java ScrabbleSuggester

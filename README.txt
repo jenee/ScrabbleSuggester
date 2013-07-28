@@ -130,74 +130,61 @@ KEY:  m == # of letters in QUERY
 Over (######) trial runs!
 
 time scrabble-indexer <word-list-file>
-Virgin environment:
-(1)
-real	0m1.824s
-user	0m3.597s
-sys	0m0.190s
-(2)
-real	0m1.841s
-user	0m3.640s
-sys	0m0.191s
-(3)
-real	0m1.834s
-user	0m3.622s
-sys	0m0.188s
-(4)
-real	0m1.809s
-user	0m3.612s
-sys	0m0.190s
-(5)
-real	0m1.828s
-user	0m3.628s
-sys	0m0.193s
-(6)
-real	0m1.838s
-user	0m3.609s
-sys	0m0.201s
-(7)
-real	0m1.827s
-user	0m3.599s
-sys	0m0.184s
-(8)
-real	0m1.830s
-user	0m3.629s
-sys	0m0.190s
-(9)
-real	0m1.841s
-user	0m3.642s
-sys	0m0.194s
-(10)
-real	0m1.847s
-user	0m3.651s
-sys	0m0.194s
+RUN 1
 
-Indexer Already run
-(1)
-real	0m1.797s
-user	0m3.550s
-sys	0m0.183s
-(2)
-real	0m1.830s
-user	0m3.641s
-sys	0m0.191s
-(3)
-real	0m1.836s
-user	0m3.645s
-sys	0m0.188s
-(4)
-real	0m1.813s
-user	0m3.634s
-sys	0m0.183s
+real	0m3.145s
+user	0m4.176s
+sys	0m0.406s
+RUN 2
 
+real	0m3.853s
+user	0m4.311s
+sys	0m0.410s
+RUN 3
 
+real	0m2.785s
+user	0m4.295s
+sys	0m0.418s
+RUN 4
 
-WITH DUPLICATE REDUCTION:
-real	0m2.192s
-user	0m3.906s
-sys	0m0.375s
+real	0m2.402s
+user	0m4.237s
+sys	0m0.412s
+RUN 5
 
+real	0m2.441s
+user	0m4.305s
+sys	0m0.421s
+RUN 6
 
+real	0m2.518s
+user	0m4.437s
+sys	0m0.425s
+RUN 7
+
+real	0m2.443s
+user	0m4.300s
+sys	0m0.422s
+RUN 8
+
+real	0m2.624s
+user	0m4.354s
+sys	0m0.409s
+RUN 9
+
+real	0m2.407s
+user	0m4.266s
+sys	0m0.409s
+RUN 10
+
+real	0m2.681s
+user	0m4.474s
+sys	0m0.425s
+RUN 11
+
+real	0m3.204s
+user	0m4.154s
+sys	0m0.411s
 
 time scrabble-suggester <QUERY> <K>
 
