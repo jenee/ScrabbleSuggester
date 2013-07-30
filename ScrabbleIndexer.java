@@ -175,8 +175,9 @@ public class ScrabbleIndexer {
             
             
             //add the new word
-            listOfWords.add(word);
-            
+            //listOfWords.add(word);
+            listOfWords.add(p.toString());
+                        
             //put the modified list back into hash map
             wordsContainingCharLists.put(c, listOfWords);
          
