@@ -1,11 +1,11 @@
+echo "ECHO javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java"
 javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java
-echo "javac ScrabbleSuggester.java ScrabbleSuggesterTester.java ScoreWordPair.java"
 
+#echo "ECHO java ScrabbleSuggesterTester"
 #java ScrabbleSuggesterTester
-#echo "java ScrabbleSuggesterTester"
 
+echo "ECHO java ScrabbleSuggester"
 java ScrabbleSuggester $1 $2
-echo "java ScrabbleSuggester"
 
 
 
