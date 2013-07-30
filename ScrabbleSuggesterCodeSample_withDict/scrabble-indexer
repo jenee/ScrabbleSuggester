@@ -1,0 +1,13 @@
+
+echo "ECHO filename = $1"
+
+echo "ECHO javac ScrabbleIndexer.java ScrabbleIndexerTester.java ScoreWordPair.java"
+javac ScrabbleIndexer.java ScrabbleIndexerTester.java ScoreWordPair.java
+
+#echo "ECHO java ScrabbleIndexerTester $1"
+#java ScrabbleIndexerTester $1
+
+echo "ECHO java ScrabbleIndexer $1"
+java ScrabbleIndexer $1
+
+
