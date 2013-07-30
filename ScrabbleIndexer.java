@@ -164,7 +164,7 @@ public class ScrabbleIndexer {
    public void populateHashMapForContainsLetter() {
       int charIntAsciiOffset = 49;
       for(int i = 0; i < maxSize; i++) {
-         System.out.print("."+i);
+         //System.out.print("."+i);
          ScoreWordPair p = wordList.get(i);
          String word = p.getWord();
          
