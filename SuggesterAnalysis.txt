@@ -1,0 +1,44 @@
+Suggester Analysis:
+
+I put together a series of test cases for the scrabble-suggester:
+
+(0) QUERY = "" K = 5, testing the program's BASE run time using invalid arguments (this test case only prints the USAGE message).
+(1) QUERY = "et" and K = 10, the provided example test case in the spec
+(2) QUERY = "embezzlements" K = 10, testing the program's reaction to being asked for the top ten occurrences of a query that will only be found once
+(3) QUERY = "jen" K = 15, testing the program's reaction to being asked for the top 15 occurrences of a query that occurs fewer than 15 times in the dictionary
+(5) QUERY= "an" K = 300, testing a common string and asking for a large (K) # of occurrences.
+(6) QUERY = "zygl" K= 5, testing for the top 5 occurrences of a query that has no occurrences
+(7) QUERY = "e" K=76170, testing for the worst: query consists of the most common letter, and K is equal to two more than the total number of words that contain that letter in the dictionary.
+
+
+
+Test (0) is used to establish a base runtime--that is, how fast the program runs if no actual program logic is executed, and it only spits out a usage message before exiting.
+
+Test (1) is used as a "normal" case, to establish how long a non-edge-case would take to run.
+
+Tests (2), (3),and to an extent (7), are used to test how the program runs when asked to find more occurrences of a string than actually exist.
+
+Test (5) is used to test how the program behaves when given a moderate load, where K is indeed less than the total number of occurrences of QUERY.
+
+Test (6) is used to test how the program behaves when given a QUERY that doesn't exist in the source word file at all.
+
+Test (7) is used to test for the worst possible case available given the provided dictionary and the program structure. Since e is the letter most commonly found in the dictionary's words, the contains-letter index file for E is the largest file, with 76168 lines/words. By picking 'e' as our query, we guarantee that all lines in e's contains-letter index file will match the query. By picking a K that is two larger than the number of words in that file, we test for index-out-of-bounds type errors, and we make sure we go through the largest possible index file, line-by-line, until we hit the end.
+
+
+
+
+Results: 
+
+TEST O:
+
+
+
+
+
+
+
+
+
+
+
+

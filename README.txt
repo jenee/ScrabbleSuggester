@@ -113,6 +113,7 @@ KEY:  n == total # of words
 * * For each line, compute score for each word by going through letter: O(m)
 * Sort the words by their scores, descending: O(nlogn)
 * For each letter in each word, write the word into the corresponding letter's index-file: O(n*m)
+* * Prevent duplicates by ensuring each word written isn't the same as the previous written word: O(1)
 ~~~OVERALL: O(nlogn) + O(n*m) + (cost of writing to disk)
 
 Scrabble Suggester:
@@ -127,9 +128,14 @@ KEY:  m == # of letters in QUERY
 
 ~~~Practical Run-time Measurement ~~~
 
-Over (######) trial runs!
+To test how long it actually took for the programs to run, I put together a few
+shell scripts which each ran my test case 11 times, using the command line
+utility "time". Eleven, because I like that number. 
+
+
 
 time scrabble-indexer <word-list-file>
+
 RUN 1
 
 real	0m3.145s
@@ -186,85 +192,472 @@ real	0m3.204s
 user	0m4.154s
 sys	0m0.411s
 
+
+
+##################################################
 time scrabble-suggester <QUERY> <K>
 
-real	0m0.786s
-user	0m1.318s
-sys	0m0.087s
 
-real	0m0.785s
-user	0m1.314s
-sys	0m0.086s
+QUERY = "" K = 5 (base: just prints USAGE flag)
 
-real	0m0.775s
-user	0m1.297s
-sys	0m0.084s
+real	0m0.840s
+user	0m1.407s
+sys	0m0.096s
 
-real	0m0.801s
-user	0m1.326s
-sys	0m0.085s
-
-real	0m0.792s
-user	0m1.344s
-sys	0m0.084s
-
-real	0m0.783s
-user	0m1.307s
-sys	0m0.085s
-
-real	0m0.777s
-user	0m1.325s
-sys	0m0.084s
-
-real	0m0.784s
-user	0m1.305s
-sys	0m0.085s
-
-real	0m0.778s
-user	0m1.299s
-sys	0m0.083s
-
-real	0m0.793s
-user	0m1.314s
-sys	0m0.086s
-
-real	0m0.863s
-user	0m1.429s
-sys	0m0.090s
-
-real	0m0.855s
-user	0m1.454s
-sys	0m0.091s
-
-real	0m0.799s
-user	0m1.344s
-sys	0m0.085s
+real	0m0.832s
+user	0m1.406s
+sys	0m0.092s
 
 real	0m0.841s
+user	0m1.395s
+sys	0m0.093s
+
+real	0m0.868s
+user	0m1.440s
+sys	0m0.092s
+
+real	0m0.838s
+user	0m1.465s
+sys	0m0.093s
+
+real	0m0.836s
+user	0m1.406s
+sys	0m0.093s
+
+real	0m0.906s
+user	0m1.531s
+sys	0m0.096s
+
+real	0m0.861s
+user	0m1.393s
+sys	0m0.091s
+
+real	0m0.857s
 user	0m1.416s
+sys	0m0.098s
+
+real	0m0.864s
+user	0m1.443s
+sys	0m0.097s
+
+real	0m0.837s
+user	0m1.402s
+sys	0m0.095s
+
+QUERY = "et" K = 10
+real	0m0.881s
+user	0m1.486s
 sys	0m0.094s
 
-real	0m0.791s
-user	0m1.318s
-sys	0m0.085s
+real	0m0.854s
+user	0m1.463s
+sys	0m0.098s
 
-real	0m0.807s
-user	0m1.335s
-sys	0m0.090s
+real	0m0.866s
+user	0m1.459s
+sys	0m0.095s
 
-real	0m0.813s
-user	0m1.356s
-sys	0m0.089s
+real	0m0.868s
+user	0m1.476s
+sys	0m0.101s
 
-real	0m0.826s
-user	0m1.364s
+real	0m0.866s
+user	0m1.462s
+sys	0m0.097s
+
+real	0m0.863s
+user	0m1.444s
+sys	0m0.093s
+
+real	0m0.862s
+user	0m1.468s
+sys	0m0.096s
+
+real	0m0.862s
+user	0m1.458s
+sys	0m0.095s
+
+real	0m0.844s
+user	0m1.431s
+sys	0m0.098s
+
+real	0m0.847s
+user	0m1.449s
+sys	0m0.095s
+
+real	0m0.848s
+user	0m1.412s
 sys	0m0.094s
 
-real	0m0.842s
-user	0m1.398s
-sys	0m0.090s
 
-real	0m0.814s
-user	0m1.400s
-sys	0m0.089s
+QUERY = "embezzlements" K = 10
 
+real	0m0.914s
+user	0m1.512s
+sys	0m0.103s
+
+real	0m0.957s
+user	0m1.578s
+sys	0m0.114s
+
+real	0m0.935s
+user	0m1.552s
+sys	0m0.103s
+
+real	0m0.921s
+user	0m1.530s
+sys	0m0.101s
+
+real	0m0.917s
+user	0m1.517s
+sys	0m0.101s
+
+real	0m0.925s
+user	0m1.536s
+sys	0m0.107s
+
+real	0m0.904s
+user	0m1.523s
+sys	0m0.101s
+
+real	0m0.945s
+user	0m1.557s
+sys	0m0.101s
+
+real	0m0.931s
+user	0m1.531s
+sys	0m0.102s
+
+real	0m0.927s
+user	0m1.575s
+sys	0m0.101s
+
+real	0m0.915s
+user	0m1.513s
+sys	0m0.097s
+
+QUERY = "jen" K = 15
+
+real	0m0.957s
+user	0m1.647s
+sys	0m0.108s
+
+real	0m0.965s
+user	0m1.660s
+sys	0m0.110s
+
+real	0m1.044s
+user	0m1.773s
+sys	0m0.116s
+
+real	0m1.052s
+user	0m1.790s
+sys	0m0.114s
+
+real	0m0.905s
+user	0m1.553s
+sys	0m0.096s
+
+real	0m0.913s
+user	0m1.574s
+sys	0m0.099s
+
+real	0m0.902s
+user	0m1.529s
+sys	0m0.100s
+
+real	0m0.874s
+user	0m1.501s
+sys	0m0.095s
+
+real	0m0.928s
+user	0m1.562s
+sys	0m0.100s
+
+real	0m1.069s
+user	0m1.561s
+sys	0m0.104s
+
+real	0m0.980s
+user	0m1.501s
+sys	0m0.102s
+
+
+QUERY= "an" K = 300
+
+real	0m15.070s
+user	0m1.680s
+sys	0m0.264s
+
+real	0m0.995s
+user	0m1.532s
+sys	0m0.113s
+
+real	0m0.904s
+user	0m1.526s
+sys	0m0.099s
+
+real	0m1.081s
+user	0m1.640s
+sys	0m0.115s
+
+real	0m1.063s
+user	0m1.566s
+sys	0m0.117s
+
+real	0m1.170s
+user	0m1.519s
+sys	0m0.100s
+
+real	0m1.820s
+user	0m1.553s
+sys	0m0.108s
+
+real	0m1.401s
+user	0m1.649s
+sys	0m0.126s
+
+real	0m1.518s
+user	0m1.557s
+sys	0m0.121s
+
+real	0m1.146s
+user	0m1.589s
+sys	0m0.125s
+
+real	0m4.414s
+user	0m1.576s
+sys	0m0.144s
+
+-
+
+real	0m6.811s
+user	0m1.518s
+sys	0m0.202s
+
+real	0m0.996s
+user	0m1.591s
+sys	0m0.103s
+
+real	0m1.057s
+user	0m1.540s
+sys	0m0.119s
+
+real	0m1.114s
+user	0m1.605s
+sys	0m0.125s
+
+real	0m1.084s
+user	0m1.538s
+sys	0m0.123s
+
+real	0m0.930s
+user	0m1.557s
+sys	0m0.114s
+
+real	0m1.190s
+user	0m1.537s
+sys	0m0.112s
+
+real	0m1.879s
+user	0m1.623s
+sys	0m0.122s
+
+real	0m1.569s
+user	0m1.547s
+sys	0m0.114s
+
+real	0m0.934s
+user	0m1.528s
+sys	0m0.109s
+
+real	0m1.160s
+user	0m1.473s
+sys	0m0.110s
+
+-
+
+real	0m1.292s
+user	0m1.604s
+sys	0m0.118s
+
+real	0m1.009s
+user	0m1.582s
+sys	0m0.110s
+
+real	0m0.891s
+user	0m1.533s
+sys	0m0.101s
+
+real	0m0.912s
+user	0m1.550s
+sys	0m0.099s
+
+real	0m0.923s
+user	0m1.578s
+sys	0m0.103s
+
+real	0m0.924s
+user	0m1.532s
+sys	0m0.103s
+
+real	0m1.184s
+user	0m1.561s
+sys	0m0.107s
+
+real	0m1.048s
+user	0m1.608s
+sys	0m0.108s
+
+real	0m0.975s
+user	0m1.575s
+sys	0m0.104s
+
+real	0m1.077s
+user	0m1.642s
+sys	0m0.112s
+
+real	0m1.431s
+user	0m1.474s
+sys	0m0.111s
+
+-
+
+real	0m4.253s
+user	0m1.509s
+sys	0m0.189s
+
+real	0m0.920s
+user	0m1.540s
+sys	0m0.099s
+
+real	0m0.889s
+user	0m1.517s
+sys	0m0.099s
+
+real	0m0.912s
+user	0m1.502s
+sys	0m0.100s
+
+real	0m0.887s
+user	0m1.523s
+sys	0m0.097s
+
+real	0m0.898s
+user	0m1.536s
+sys	0m0.097s
+
+real	0m0.922s
+user	0m1.576s
+sys	0m0.102s
+
+real	0m0.930s
+user	0m1.569s
+sys	0m0.103s
+
+real	0m0.898s
+user	0m1.560s
+sys	0m0.102s
+
+real	0m0.906s
+user	0m1.546s
+sys	0m0.101s
+
+real	0m0.907s
+user	0m1.549s
+sys	0m0.101s
+
+
+QUERY = "zygl" K= 5 (query not found at all)
+real	0m1.489s
+user	0m1.603s
+sys	0m0.126s
+
+real	0m0.937s
+user	0m1.592s
+sys	0m0.107s
+
+real	0m0.966s
+user	0m1.677s
+sys	0m0.105s
+
+real	0m0.923s
+user	0m1.572s
+sys	0m0.104s
+
+real	0m0.919s
+user	0m1.511s
+sys	0m0.102s
+
+real	0m0.956s
+user	0m1.645s
+sys	0m0.108s
+
+real	0m0.926s
+user	0m1.549s
+sys	0m0.102s
+
+real	0m0.922s
+user	0m1.561s
+sys	0m0.105s
+
+real	0m0.927s
+user	0m1.560s
+sys	0m0.103s
+
+real	0m0.938s
+user	0m1.588s
+sys	0m0.104s
+
+real	0m0.997s
+user	0m1.729s
+sys	0m0.124s
+
+
+
+
+QUERY = "e" K=76170 (WORST CASE: most common letter, read all lines)
+
+real	0m7.240s
+user	0m2.671s
+sys	0m0.499s
+
+real	0m1.755s
+user	0m2.703s
+sys	0m0.394s
+
+real	0m1.681s
+user	0m2.636s
+sys	0m0.375s
+
+real	0m1.605s
+user	0m2.592s
+sys	0m0.375s
+
+real	0m1.716s
+user	0m2.638s
+sys	0m0.392s
+
+real	0m1.643s
+user	0m2.625s
+sys	0m0.374s
+
+real	0m2.190s
+user	0m2.661s
+sys	0m0.389s
+
+real	0m2.506s
+user	0m2.694s
+sys	0m0.418s
+
+real	0m2.821s
+user	0m2.614s
+sys	0m0.387s
+
+real	0m1.682s
+user	0m2.603s
+sys	0m0.373s
+
+real	0m1.838s
+user	0m2.584s
+sys	0m0.424s

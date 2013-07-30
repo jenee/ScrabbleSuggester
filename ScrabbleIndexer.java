@@ -9,7 +9,7 @@ public class ScrabbleIndexer {
    public File inputFile;
    public Scanner fileScanner;
    public String filepath;
-   
+   long lStartTime;
    
    public HashMap< Character, ArrayList<String> > wordsContainingCharLists;
    
@@ -23,15 +23,32 @@ public class ScrabbleIndexer {
       this.maxSize = 113810;
       this.wordList = new ArrayList<ScoreWordPair>(maxSize);
       this.filepath = path;
+      this.lStartTime = System.currentTimeMillis();
+
    }
    
    public void runIndexer() {
       this.openFileScanner();
       this.scoreAndStoreWordsFromFile();
+      long lEndTime = System.currentTimeMillis();	     
+      System.err.println("before sort: "+(lEndTime-lStartTime)/1000.0+" secs!");
+	
       this.sortWordList();
+	   lEndTime = System.currentTimeMillis();	   
+      System.err.println("SORT DONE after "+(lEndTime-lStartTime)/1000.0+" secs!");
+	
       this.initContainsCharLists();
       this.populateHashMapForContainsLetter();
+      
+	   lEndTime = System.currentTimeMillis();	   
+      System.err.println("Hash populated after "+(lEndTime-lStartTime)/1000.0+" secs!");
+	
       this.populateFilesForEachLetterFromHashMap();
+      
+      lEndTime = System.currentTimeMillis();	   
+	   
+      System.err.println("ALL DONE after "+(lEndTime-lStartTime)/1000.0+" secs!");
+	
    }
    
    public void cleanup() {
@@ -388,6 +405,8 @@ public class ScrabbleIndexer {
   
    
    public static void main(String[] args) throws IOException {
+   
+
       if(args.length < 1 ) {
          System.out.println("USAGE: ./scrabble-indexer <word-list-file>");
          return;
