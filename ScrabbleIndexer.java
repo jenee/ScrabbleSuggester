@@ -23,7 +23,7 @@ public class ScrabbleIndexer {
       this.maxSize = 113810;
       this.wordList = new ArrayList<ScoreWordPair>(maxSize);
       this.filepath = path;
-      this.lStartTime = System.currentTimeMillis();
+      //this.lStartTime = System.currentTimeMillis();
 
    }
    
