@@ -9,7 +9,7 @@ public class ScrabbleIndexer {
    public File inputFile;
    public Scanner fileScanner;
    public String filepath;
-   long lStartTime;
+   //long lStartTime;
    
    public HashMap< Character, ArrayList<String> > wordsContainingCharLists;
    
@@ -30,24 +30,24 @@ public class ScrabbleIndexer {
    public void runIndexer() {
       this.openFileScanner();
       this.scoreAndStoreWordsFromFile();
-      long lEndTime = System.currentTimeMillis();	     
-      System.err.println("before sort: "+(lEndTime-lStartTime)/1000.0+" secs!");
+      //long lEndTime = System.currentTimeMillis();	     
+      //System.err.println("before sort: "+(lEndTime-lStartTime)/1000.0+" secs!");
 	
       this.sortWordList();
-	   lEndTime = System.currentTimeMillis();	   
-      System.err.println("SORT DONE after "+(lEndTime-lStartTime)/1000.0+" secs!");
+	   //lEndTime = System.currentTimeMillis();	   
+      //System.err.println("SORT DONE after "+(lEndTime-lStartTime)/1000.0+" secs!");
 	
       this.initContainsCharLists();
       this.populateHashMapForContainsLetter();
       
-	   lEndTime = System.currentTimeMillis();	   
-      System.err.println("Hash populated after "+(lEndTime-lStartTime)/1000.0+" secs!");
+	   //lEndTime = System.currentTimeMillis();	   
+      //System.err.println("Hash populated after "+(lEndTime-lStartTime)/1000.0+" secs!");
 	
       this.populateFilesForEachLetterFromHashMap();
       
-      lEndTime = System.currentTimeMillis();	   
+      //lEndTime = System.currentTimeMillis();	   
 	   
-      System.err.println("ALL DONE after "+(lEndTime-lStartTime)/1000.0+" secs!");
+      //System.err.println("ALL DONE after "+(lEndTime-lStartTime)/1000.0+" secs!");
 	
    }
    
